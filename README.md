@@ -19,8 +19,134 @@
 Поддержка разных версий 1С. Версирование самого сервиса с обратной совместимостью в рамках мажорной версии 1С.
 
 ## Пример использования
-В роли примера рассмотрим документ “Данные по продажам”.
+В роли примера рассмотрим документ “Данные по продажам”.  
+Для формирования данного документа необходимо загрузить информацию по чекам. Каждый чек имеет общую информацию, позиции и оплаты. Ниже представлены модели данных чека.
 
+### Модели данных.
+В роли языка программирования использован C#.  
+
+#### Модель чека на продажу.
+```csharp
+/// <summary>
+/// Чек на продажу
+/// </summary>
+public class SaleSlip : PersistentObjectBase, ISaleSlip
+{
+    /// <summary>
+    /// Дата чека
+    /// </summary>
+    public DateTime Date { get; set; }
+
+    /// <summary>
+    /// Организация
+    /// </summary>
+    public Guid LegalPersonId { get; set; }
+
+    /// <summary>
+    /// Склад, Id
+    /// </summary>
+    public Guid WarehouseId { get; set; }
+
+    ///// <summary>
+    ///// Склад
+    ///// </summary>
+    //public IWarehouse Warehouse { get; set; }
+
+    /// <summary>
+    /// Место продажи, Id
+    /// </summary>
+    public Guid ShopId { get; set; }
+
+    ///// <summary>
+    ///// Место продажи
+    ///// </summary>
+    //public IShop Shop { get; set; }
+
+    /// <summary>
+    /// Позиции чека
+    /// </summary>
+    public IEnumerable<SlipItem> SlipItems { get; set; }
+
+    /// <summary>
+    /// Оплаты в чеке
+    /// </summary>
+    public IEnumerable<SlipPayment> SlipPayments { get; set; }
+}
+```
+
+#### Модель позиций чека.
+```csharp
+/// <summary>
+/// Позиция чека
+/// </summary>
+public class SlipItem : PersistentObjectBase, ISlipItem
+{
+    public int LineNumber { get; set; }
+
+    public Guid ItemId { get; set; }
+
+    /// <summary>
+    /// Номенклатура
+    /// </summary>
+    public Item Item { get; set; }
+
+    /// <summary>
+    /// Количество
+    /// </summary>
+    public decimal Quantity { get; set; }
+
+    /// <summary>
+    /// Цена
+    /// </summary>
+    public decimal Cost { get; set; }
+
+    /// <summary>
+    /// Сумма
+    /// </summary>
+    public decimal Amount { get; set; }
+
+    /// <summary>
+    /// Ставка НДС
+    /// </summary>
+    public Vat VatValue { get; set; }
+
+    /// <summary>
+    /// Сумма НДС
+    /// </summary>
+    public decimal VatAmount { get; set; }
+
+    /// <summary>
+    /// Себестоимость
+    /// </summary>
+    public decimal SelfCost { get; set; }
+}
+```
+
+#### Модель оплат в чеке.
+```csharp
+/// <summary>
+/// Оплата в чеке
+/// </summary>
+public class SlipPayment : PersistentObjectBase, ISlipPayment
+{
+    public int LineNumber { get; set;  }
+
+    /// <summary>
+    /// Вид оплаты, Id
+    /// </summary>
+    public Guid PaymentTypeContractorId { get; set; }
+
+    ///// <summary>
+    ///// Вид оплаты
+    ///// </summary>
+    //public IPaymentTypeContractor PaymentTypeContractor { get; set; }
+
+    /// <summary>
+    /// Сумма
+    /// </summary>
+    public decimal Amount { get; set; }
+}
+```
 
 ## Реальный кейс
 Был реализован функционал по интеграции нашей ERP системы с 1С.  
