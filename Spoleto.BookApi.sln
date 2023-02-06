@@ -5,7 +5,9 @@ VisualStudioVersion = 17.2.32616.157
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{AFD3C1BA-0896-4500-A7E1-6212147578F2}"
 	ProjectSection(SolutionItems) = preProject
-		.editorconfig = .editorconfig
+		src\.editorconfig = src\.editorconfig
+		LICENSE = LICENSE
+		README.md = README.md
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Spoleto.BookApi.Interfaces", "src\Spoleto.BookApi.Interfaces\Spoleto.BookApi.Interfaces.csproj", "{468D08A0-35A8-4889-B1EC-D2AC15AD5F0A}"
