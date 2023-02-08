@@ -44,7 +44,7 @@ namespace Spoleto.BookApi.Interfaces
         /// <summary>
         /// Подразделение, Id
         /// </summary>
-        public Guid CompanyDivisionId { get; set; }
+        Guid CompanyDivisionId { get; set; }
 
         /// <summary>
         /// Подразделение организации

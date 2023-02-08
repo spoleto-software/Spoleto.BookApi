@@ -18,10 +18,10 @@ namespace Spoleto.BookApi.Client.Providers
 
         Task<T> LoadObjectAsync<T>(PersistentProviderOption settings, string dataBaseName, Guid objectKey, string[] includeAttributes = null) where T : PersistentObjectBase;
 
-        List<T> LoadObjectList<T>(PersistentProviderOption settings, string dataBaseName, ObjectCriteria objectCriteria = null, string[] includeAttributes = null) where T : PersistentObjectBase
+        List<T> LoadObjectList<T>(PersistentProviderOption settings, string dataBaseName, object objectCriteria = null, string[] includeAttributes = null) where T : PersistentObjectBase
             => LoadObjectListAsync<T>(settings, dataBaseName, objectCriteria, includeAttributes).GetAwaiter().GetResult();
 
-        Task<List<T>> LoadObjectListAsync<T>(PersistentProviderOption settings, string dataBaseName, ObjectCriteria objectCriteria = null, string[] includeAttributes = null) where T : PersistentObjectBase;
+        Task<List<T>> LoadObjectListAsync<T>(PersistentProviderOption settings, string dataBaseName, object objectCriteria = null, string[] includeAttributes = null) where T : PersistentObjectBase;
 
         T CreateObject<T>(PersistentProviderOption settings, string dataBaseName, T newObject) where T : PersistentObjectBase
             => CreateObjectAsync(settings, dataBaseName, newObject).GetAwaiter().GetResult();

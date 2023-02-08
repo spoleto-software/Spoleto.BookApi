@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Net.Http;
-using System.Text;
+using System.Net.Mime;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
-using Spoleto.BookApi.Client.Extensions;
+using Spoleto.Common.Extensions;
+using Spoleto.Common.Helpers;
 
 namespace Spoleto.BookApi.Client.Providers
 {
@@ -80,7 +81,7 @@ namespace Spoleto.BookApi.Client.Providers
                 var errorResult = await responseMessage.Content.ReadAsStringAsync().ConfigureAwait(false);
                 if (!String.IsNullOrEmpty(errorResult))
                 {
-                    if (responseMessage.Content.Headers.ContentType.MediaType == Core.RestClient.ContentType.ApplicationJson)
+                    if (responseMessage.Content.Headers.ContentType.MediaType == MediaTypeNames.Application.Json)
                     {
                         //todo: десериализовать Json в объект
                         _logger.LogError(errorResult);
@@ -132,15 +133,15 @@ namespace Spoleto.BookApi.Client.Providers
             return obj;
         }
 
-        async Task<List<T>> IPersistentProvider.LoadObjectListAsync<T>(PersistentProviderOption settings, string dataBaseName, ObjectCriteria objectCriteria, string[] includeAttributes)
+        async Task<List<T>> IPersistentProvider.LoadObjectListAsync<T>(PersistentProviderOption settings, string dataBaseName, object objectCriteria, string[] includeAttributes)
         {
             var sUri = $"{typeof(T).Name}/GetObjectList/{dataBaseName}";
-            if (objectCriteria.Rows > 0)
-                sUri += $"/{objectCriteria.Rows}";
-            if (objectCriteria.Offset > 0)
-                sUri += $"/{objectCriteria.Offset}";
-            if (includeAttributes?.Length > 0)
-                sUri += "?" + String.Join(",", includeAttributes.Select(x => "includeAttributes=" + x));
+            //if (objectCriteria.Rows > 0)
+            //    sUri += $"/{objectCriteria.Rows}";
+            //if (objectCriteria.Offset > 0)
+            //    sUri += $"/{objectCriteria.Offset}";
+            //if (includeAttributes?.Length > 0)
+            //    sUri += "?" + String.Join(",", includeAttributes.Select(x => "includeAttributes=" + x));
 
             var uri = new Uri(new Uri(settings.ServiceUrl), sUri);
 

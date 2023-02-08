@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Spoleto.BookApi.Interfaces
+﻿namespace Spoleto.BookApi.Interfaces
 {
     /// <summary>
     /// Справочник единиц измерения
@@ -21,6 +19,6 @@ namespace Spoleto.BookApi.Interfaces
         /// <summary>
         /// Код
         /// </summary>
-        public string Code { get; set; }
+        string Code { get; set; }
     }
 }

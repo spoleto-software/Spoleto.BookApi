@@ -1,13 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Text;
+//using System.ComponentModel.DataAnnotations;
 
 namespace Spoleto.BookApi.Interfaces.Models
 {
     public abstract class PersistentObjectBase : IPersistentObjectBase
     {
-        [Key]
+        //[Key]
         public Guid? Identity { get; set; }
     }
 }

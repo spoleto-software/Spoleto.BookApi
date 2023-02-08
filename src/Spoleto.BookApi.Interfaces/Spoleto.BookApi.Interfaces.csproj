@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>netcoreapp3.1</TargetFramework>
+        <TargetFramework>netstandard2.0</TargetFramework>
         <AssemblyName>Spoleto.BookApi.Interfaces</AssemblyName>
         <RootNamespace>Spoleto.BookApi.Interfaces</RootNamespace>
         <Title>Spoleto.BookApi.Interfaces</Title>
@@ -19,23 +19,33 @@
     <!-- Package info -->
     <PropertyGroup>
         <Product>Spoleto.BookApi.Interfaces library</Product>
-        <Description>The project for integration with 1C OData service.</Description>
+        <Description>The base project for Spoleto.BookApi (integration with 1C).</Description>
         <PackageId>Spoleto.BookApi.Interfaces</PackageId>
         <Authors>Spoleto-Software</Authors>
         <Company>SPOLETO Software Development</Company>
-        <!--<PackageIcon>MainIcon.png</PackageIcon>-->
+        <PackageIcon>MainIcon.png</PackageIcon>
         <PackageProjectUrl>https://spoleto.ru</PackageProjectUrl>
-        <RepositoryUrl>https://github.com/spoleto-software/Integration.API.Interfaces</RepositoryUrl>
+        <RepositoryUrl>https://github.com/spoleto-software/Spoleto.BookApi.Interfaces</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
-        <!--<PackageReadmeFile>README.md</PackageReadmeFile>-->
-        <PackageTags>1C; Integration; OData</PackageTags>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <PackageTags>1C; Integration</PackageTags>
         <Copyright>Copyright © $([System.DateTime]::Now.Year.ToString())</Copyright>
         <PackageReleaseNotes></PackageReleaseNotes>
-        <Version>$([System.DateTime]::Now.AddYears(-2021).Year.ToString()).$([System.DateTime]::Now.ToString("MM.dd.HHmm"))</Version>
-        <AssemblyVersion>$([System.DateTime]::Now.AddYears(-2021).Year.ToString()).$([System.DateTime]::Now.ToString("MM.dd.HHmm"))</AssemblyVersion>
-        <FileVersion>$([System.DateTime]::Now.AddYears(-2021).Year.ToString()).$([System.DateTime]::Now.ToString("MM.dd.HHmm"))</FileVersion>
+        <Version>$([System.DateTime]::Now.AddYears(-2022).Year.ToString()).$([System.DateTime]::Now.ToString("MM.dd.HHmm"))</Version>
+        <AssemblyVersion>$([System.DateTime]::Now.AddYears(-2022).Year.ToString()).$([System.DateTime]::Now.ToString("MM.dd.HHmm"))</AssemblyVersion>
+        <FileVersion>$([System.DateTime]::Now.AddYears(-2022).Year.ToString()).$([System.DateTime]::Now.ToString("MM.dd.HHmm"))</FileVersion>
     </PropertyGroup>
 
+    <ItemGroup>
+        <None Include="README.md">
+            <Pack>True</Pack>
+            <PackagePath>\</PackagePath>
+        </None>
+        <None Include="Resources\MainIcon.jpg">
+            <Pack>True</Pack>
+            <PackagePath></PackagePath>
+        </None>
+    </ItemGroup>
 
 </Project>
