@@ -23,7 +23,7 @@
         <PackageId>Spoleto.BookApi.Interfaces</PackageId>
         <Authors>Spoleto-Software</Authors>
         <Company>SPOLETO Software Development</Company>
-        <PackageIcon>MainIcon.png</PackageIcon>
+        <PackageIcon>MainIcon.jpg</PackageIcon>
         <PackageProjectUrl>https://spoleto.ru</PackageProjectUrl>
         <RepositoryUrl>https://github.com/spoleto-software/Spoleto.BookApi.Interfaces</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
