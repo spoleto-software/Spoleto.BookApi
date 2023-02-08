@@ -25,7 +25,7 @@
 ### Модели данных.
 В роли языка программирования использован C#.  
 
-#### Модель чека на продажу.
+#### Модель чека на продажу
 Общая информация.  
 ```csharp
 /// <summary>
@@ -75,7 +75,7 @@ public class SaleSlip : PersistentObjectBase, ISaleSlip
 }
 ```
 
-#### Модель позиций чека.
+#### Модель позиций чека
 Товары в чеке.
 ```csharp
 /// <summary>
@@ -124,7 +124,7 @@ public class SlipItem : PersistentObjectBase, ISlipItem
 }
 ```
 
-#### Модель оплат в чеке.
+#### Модель оплат в чеке
 ```csharp
 /// <summary>
 /// Оплата в чеке
@@ -138,16 +138,63 @@ public class SlipPayment : PersistentObjectBase, ISlipPayment
     /// </summary>
     public Guid PaymentTypeContractorId { get; set; }
 
-    ///// <summary>
-    ///// Вид оплаты
-    ///// </summary>
-    //public IPaymentTypeContractor PaymentTypeContractor { get; set; }
-
     /// <summary>
     /// Сумма
     /// </summary>
     public decimal Amount { get; set; }
 }
+```
+### Демо примеры
+Ознакомиться с демо-примерами как работать со Spoleto.BookApi можно здесь:  
+[Spoleto.BookApi.Client.Tests](src/Spoleto.BookApi.Client.Tests#spoletobookapiclienttests)
+
+Несколько примеров здесь:
+#### Создание объекта
+```csharp
+// Инициализация зависимости:
+services.AddHttpClient();
+services.AddTransient<IPersistentProvider, PersistentProvider>();
+
+// Получение зависимости:
+var provider = _serviceProvider.GetService<IPersistentProvider>();
+
+// Либо явное создание провайдера с указанием экземпляра HttpClient:
+var httpClient = new HttpClient();
+var provider = PersistentProvider.CreateProviderWithHttpClient(httpClient);
+
+// Далее инициализация бизнес объекта:
+var newItem = new SlipItem
+{
+    Identity = Guid.NewGuid(),
+    Amount = 100,
+    Quantity = 5,
+};
+var newPayment = new SlipPayment
+{
+    Identity = Guid.NewGuid(),
+    Amount = 500
+};
+
+var newObj = new SaleSlip
+{
+    Identity = Guid.NewGuid(),
+    Date = DateTime.Now,
+    LegalPersonId = Guid.NewGuid(),
+    ShopId = Guid.NewGuid(),
+    SlipItems = new List<SlipItem>()
+    {
+        newItem
+    },
+    SlipPayments = new List<SlipPayment>()
+    {
+        newPayment
+    }
+};
+
+// Собственно создание объекта
+var obj = provider.CreateObject(_settings, "db1СName", newObj);
+// Либо async:
+var obj = await provider.CreateObjectAsync(_settings, "db1СName", newObj);
 ```
 
 ## Реальный кейс
