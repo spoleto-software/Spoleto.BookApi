@@ -16,6 +16,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Spoleto.BookApi.Client", "s
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WorkFlow", "WorkFlow", "{8079C17B-676E-43F1-B558-E358BA6EC79B}"
 	ProjectSection(SolutionItems) = preProject
+		.github\workflows\publish-client-to-nuget.yml = .github\workflows\publish-client-to-nuget.yml
 		.github\workflows\publish-interfaces-to-nuget.yml = .github\workflows\publish-interfaces-to-nuget.yml
 	EndProjectSection
 EndProject
