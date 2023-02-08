@@ -32,10 +32,15 @@ namespace Spoleto.BookApi.Client.Providers
         /// Use external instance of <see cref="HttpClient"/>.
         /// </summary>
         /// <param name="httpClient"></param>
-        public PersistentProvider(HttpClient httpClient)
+        private PersistentProvider(HttpClient httpClient)
         {
             _httpClient = httpClient;
         }
+
+        /// <summary>
+        /// Creates the provider with the external instance of <see cref="HttpClient"/>.
+        /// </summary>
+        public static PersistentProvider CreateProviderWithHttpClient(HttpClient httpClient) => new PersistentProvider(httpClient);
 
         private void InitHeaders(HttpRequestMessage requestMessage, PersistentProviderOption settings)
         {
