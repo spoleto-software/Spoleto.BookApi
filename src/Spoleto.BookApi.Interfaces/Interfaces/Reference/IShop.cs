@@ -15,7 +15,7 @@ namespace Spoleto.BookApi.Interfaces
 
         DateTime DateCreate { get; set; }
 
-        DateTime DateClose { get; set; }
+        DateTime? DateClose { get; set; }
 
         ICompanyDivision CompanyDivision { get; set; }
 
