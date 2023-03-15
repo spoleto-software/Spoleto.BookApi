@@ -1,5 +1,6 @@
 # Spoleto.BookApi
-Интеграция с 1С (обмен данными, проводки)
+Интеграция с 1С.  
+Обмен данными, проводки документов.
 
 ## Типичные задачи
 Загрузка данных в 1С из ERP и обратно.  
@@ -12,7 +13,7 @@
 Формат данных в запросе: JSON.  
 Полный цикл CRUD + Patch (обновление указанных свойств объекта) + специфичные запросы для проведения/распроведения документов.  
 
-Работа через бизнес сущности сервиса, которые выступают в роли DTO. Эти объекты мапятся в сущности 1С. Бизнес сущности имеют для разработчиков более привычный нэйминг на латинице, вместо нейминга 1С на кириллице.
+Работа через бизнес сущности сервиса, которые выступают в роли DTO. Эти объекты мапятся в сущности 1С. Бизнес сущности имеют для разработчиков более понятную структуру и более привычный нэйминг на латинице, вместо нейминга 1С на кириллице.
 
 Далее работа с 1С через OData. Это позволяет более гибко работать с 1С, в сравнении с прямой обработкой 1С. Например, доступна такая функциональность, как получение единичных объектов как по идентификатору, так и целого списка объектов по любому динамическому фильтру (совместимому со спецификацией OData), который можно указать в запросе.
 
@@ -25,7 +26,7 @@
 ### Модели данных.
 В роли языка программирования использован C#.  
 
-#### Модель чека на продажу.
+#### Модель чека на продажу
 Общая информация.  
 ```csharp
 /// <summary>
@@ -75,7 +76,7 @@ public class SaleSlip : PersistentObjectBase, ISaleSlip
 }
 ```
 
-#### Модель позиций чека.
+#### Модель позиций чека
 Товары в чеке.
 ```csharp
 /// <summary>
@@ -124,7 +125,7 @@ public class SlipItem : PersistentObjectBase, ISlipItem
 }
 ```
 
-#### Модель оплат в чеке.
+#### Модель оплат в чеке
 ```csharp
 /// <summary>
 /// Оплата в чеке
@@ -138,20 +139,74 @@ public class SlipPayment : PersistentObjectBase, ISlipPayment
     /// </summary>
     public Guid PaymentTypeContractorId { get; set; }
 
-    ///// <summary>
-    ///// Вид оплаты
-    ///// </summary>
-    //public IPaymentTypeContractor PaymentTypeContractor { get; set; }
-
     /// <summary>
     /// Сумма
     /// </summary>
     public decimal Amount { get; set; }
 }
 ```
+### Демо примеры
+Ознакомиться с демо-примерами как работать со Spoleto.BookApi можно здесь:  
+[Spoleto.BookApi.Client.Tests](src/Spoleto.BookApi.Client.Tests#spoletobookapiclienttests)
+
+Несколько примеров здесь:
+#### Создание объекта
+```csharp
+// Инициализация зависимости:
+services.AddHttpClient();
+services.AddTransient<IPersistentProvider, PersistentProvider>();
+
+// Получение зависимости:
+var provider = _serviceProvider.GetService<IPersistentProvider>();
+
+// Либо явное создание провайдера с указанием экземпляра HttpClient:
+var httpClient = new HttpClient();
+var provider = PersistentProvider.CreateProviderWithHttpClient(httpClient);
+
+// Далее инициализация бизнес объекта:
+var newItem = new SlipItem
+{
+    Identity = Guid.NewGuid(),
+    Amount = 100,
+    Quantity = 5,
+};
+var newPayment = new SlipPayment
+{
+    Identity = Guid.NewGuid(),
+    Amount = 500
+};
+
+var newObj = new SaleSlip
+{
+    Identity = Guid.NewGuid(),
+    Date = DateTime.Now,
+    LegalPersonId = Guid.NewGuid(),
+    ShopId = Guid.NewGuid(),
+    SlipItems = new List<SlipItem>()
+    {
+        newItem
+    },
+    SlipPayments = new List<SlipPayment>()
+    {
+        newPayment
+    }
+};
+
+// Собственно создание объекта
+var obj = provider.CreateObject(_settings, "db1СName", newObj);
+// Либо async:
+var obj = await provider.CreateObjectAsync(_settings, "db1СName", newObj);
+```
+
+Таким образом работа с 1С с помощью Spoleto.BookApi выглядит привычно и логично для .NET разработчика. Все нюансы и сложности работы с 1С скрыты внутри нашего сервиса. Поэтому интеграция с 1С проходит понятно с помощью понятных инструментов.
 
 ## Реальный кейс
 Был реализован функционал по интеграции нашей ERP системы с 1С.  
-В роли коннектора со стороны ERP системы использован клиент, написанный на .NET 6/7. Этот клиент выложен в публичный доступ на nuget.org. Благодаря кроссплатформенности .NET этот клиент может быть запущен на разных платформах (Windows, macOS и Linux).  
+В роли коннектора со стороны ERP системы использован клиент, написанный на C# (таргеты: netstandard2.0 и net6.0). Клиент выложен в публичный доступ на nuget.org:  
+https://www.nuget.org/packages/Spoleto.BookApi.Client
+
+Благодаря кроссплатформенности .NET этот клиент может быть запущен на разных платформах (Windows, macOS и Linux).  
 Данная интеграция позволяет загружать данные из нашей ERP системы в 1С, делать проводки этих документов.
+
+Самое сложное в этой интеграции - это сконвертировать свои бизнес объекты из ERP в бизнес объекты Spoleto.BookApi. Но благодаря простоте бизнес объектов Spoleto.BookApi даже этот этап не должен вызвать сложностей. А далее обычная работа с RESTful сервисом через HTTP запросы.
 
