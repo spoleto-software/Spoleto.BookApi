@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Net.Http;
-using System.Net.Mime;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 using Spoleto.Common.Extensions;
@@ -117,7 +116,7 @@ namespace Spoleto.BookApi.Client.Providers
 
         private IPersistentProvider Provider => this;
 
-        List<T> IPersistentProvider.FindObject<T>(PersistentProviderOption settings, string dataBaseName, T objWithKeys, bool findDeleted, string[] includeAttributes) 
+        List<T> IPersistentProvider.FindObject<T>(PersistentProviderOption settings, string dataBaseName, T objWithKeys, bool findDeleted, string[] includeAttributes)
             => Provider.FindObjectAsync(settings, dataBaseName, objWithKeys, findDeleted, includeAttributes).GetAwaiter().GetResult();
 
         async Task<List<T>> IPersistentProvider.FindObjectAsync<T>(PersistentProviderOption settings, string dataBaseName, T objWithKeys, bool findDeleted, string[] includeAttributes)

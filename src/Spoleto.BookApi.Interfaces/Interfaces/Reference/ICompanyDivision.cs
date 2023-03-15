@@ -24,7 +24,7 @@ namespace Spoleto.BookApi.Interfaces
         /// <summary>
         /// Дата закрытия
         /// </summary>
-        DateTime DateClose { get; set; }
+        DateTime? DateClose { get; set; }
 
         /// <summary>
         /// КПП
