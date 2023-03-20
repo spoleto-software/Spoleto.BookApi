@@ -15,6 +15,12 @@ namespace Spoleto.BookApi.Client.Tests
         {
             var services = new ServiceCollection();
             services.AddHttpClient();
+            services.AddHttpClient("WithDefaultCredentials")
+                .ConfigurePrimaryHttpMessageHandler(h => new HttpClientHandler
+                {
+                    UseDefaultCredentials = true
+                });
+
             services.AddTransient<IPersistentProvider, PersistentProvider>();
 
             _serviceProvider = services.BuildServiceProvider();
