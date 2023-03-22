@@ -138,7 +138,7 @@ namespace Spoleto.BookApi.Client.Providers
 
         async Task<T> IPersistentProvider.LoadObjectAsync<T>(PersistentProviderOption settings, string dataBaseName, Guid objectKey, string[] includeAttributes)
         {
-            var sUri = $"{typeof(T).Name}/{dataBaseName}/{objectKey:D}";
+            var sUri = $"api/{typeof(T).Name}/{dataBaseName}/{objectKey:D}";
             if (includeAttributes?.Length > 0)
                 sUri += "?" + String.Join(",", includeAttributes.Select(x => "includeAttributes=" + x));
 
@@ -154,7 +154,7 @@ namespace Spoleto.BookApi.Client.Providers
 
         async Task<List<T>> IPersistentProvider.LoadObjectListAsync<T>(PersistentProviderOption settings, string dataBaseName, object objectCriteria, string[] includeAttributes)
         {
-            var sUri = $"{typeof(T).Name}/GetObjectList/{dataBaseName}";
+            var sUri = $"api/{typeof(T).Name}/GetObjectList/{dataBaseName}";
             //if (objectCriteria.Rows > 0)
             //    sUri += $"/{objectCriteria.Rows}";
             //if (objectCriteria.Offset > 0)
@@ -175,7 +175,7 @@ namespace Spoleto.BookApi.Client.Providers
 
         async Task<T> IPersistentProvider.CreateObjectAsync<T>(PersistentProviderOption settings, string dataBaseName, T newObject)
         {
-            var uri = new Uri(new Uri(settings.ServiceUrl), $"{typeof(T).Name}/{dataBaseName}");
+            var uri = new Uri(new Uri(settings.ServiceUrl), $"api/{typeof(T).Name}/{dataBaseName}");
 
             var jsonModel = JsonHelper.ToJson(newObject);
             var obj = await InvokeAsync<T>(settings, uri, HttpMethod.Post, jsonModel).ConfigureAwait(false);
@@ -189,7 +189,7 @@ namespace Spoleto.BookApi.Client.Providers
 
         async Task<T> IPersistentProvider.UpdateObjectAsync<T>(PersistentProviderOption settings, string dataBaseName, T updatedObject)
         {
-            var uri = new Uri(new Uri(settings.ServiceUrl), $"{typeof(T).Name}/{dataBaseName}");
+            var uri = new Uri(new Uri(settings.ServiceUrl), $"api/{typeof(T).Name}/{dataBaseName}");
 
             var jsonModel = JsonHelper.ToJson(updatedObject);
             var obj = await InvokeAsync<T>(settings, uri, HttpMethod.Put, jsonModel).ConfigureAwait(false);
@@ -203,7 +203,7 @@ namespace Spoleto.BookApi.Client.Providers
 
         async Task<T> IPersistentProvider.UpdateOnlyObjectAsync<T>(PersistentProviderOption settings, string dataBaseName, Guid updatingObjectId, Expression<Func<T>> updateFields)
         {
-            var uri = new Uri(new Uri(settings.ServiceUrl), $"{typeof(T).Name}/{dataBaseName}/{updatingObjectId:D}");
+            var uri = new Uri(new Uri(settings.ServiceUrl), $"api/{typeof(T).Name}/{dataBaseName}/{updatingObjectId:D}");
 
             var updatingValues = updateFields.ToDictionaryValues();
             var jsonModel = JsonHelper.ToJson(updatingValues);
@@ -218,7 +218,7 @@ namespace Spoleto.BookApi.Client.Providers
 
         async Task<T> IPersistentProvider.UpdateOnlyObjectAsync<T>(PersistentProviderOption settings, string dataBaseName, Guid updatingObjectId, Dictionary<string, object> updatingValues)
         {
-            var uri = new Uri(new Uri(settings.ServiceUrl), $"{typeof(T).Name}/{dataBaseName}");
+            var uri = new Uri(new Uri(settings.ServiceUrl), $"api/{typeof(T).Name}/{dataBaseName}");
 
             var jsonModel = JsonHelper.ToJson(updatingValues);
             var obj = await InvokeAsync<T>(settings, uri, HttpMethod.Put, jsonModel).ConfigureAwait(false);
@@ -231,7 +231,7 @@ namespace Spoleto.BookApi.Client.Providers
 
         async Task IPersistentProvider.DeleteObjectAsync<T>(PersistentProviderOption settings, string dataBaseName, Guid id)
         {
-            var uri = new Uri(new Uri(settings.ServiceUrl), $"{typeof(T).Name}/{dataBaseName}/{id:D}");
+            var uri = new Uri(new Uri(settings.ServiceUrl), $"api/{typeof(T).Name}/{dataBaseName}/{id:D}");
 
             await InvokeAsync<object>(settings, uri, HttpMethod.Delete).ConfigureAwait(false);
         }
