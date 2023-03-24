@@ -6,7 +6,7 @@ using Spoleto.BookApi.Interfaces.Models;
 
 namespace Spoleto.BookApi.Client.Providers
 {
-    public interface IPersistentProvider
+    public partial interface IPersistentProvider
     {
         List<T> FindObject<T>(PersistentProviderOption settings, string dataBaseName, T objWithKeys, bool findDeleted, string[] includeAttributes = null) where T : PersistentObjectBase;
 

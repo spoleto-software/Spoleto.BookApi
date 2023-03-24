@@ -206,5 +206,136 @@ namespace Spoleto.BookApi.Client.Tests
                 Assert.That(objList, Is.Not.Null);
             });
         }
+
+        [Test]
+        public async Task CreateContainer()
+        {
+            // Arrange
+            var provider = _serviceProvider.GetService<IPersistentProvider>();
+            var newItem = new SlipItem
+            {
+                Identity = Guid.NewGuid(),
+                Amount = 100,
+                Quantity = 5,
+            };
+            var newPayment = new SlipPayment
+            {
+                Identity = Guid.NewGuid(),
+                Amount = 500
+            };
+
+            var newObj = new SaleSlip
+            {
+                Identity = Guid.NewGuid(),
+                Date = DateTime.Now,
+                LegalPersonId = Guid.NewGuid(),
+                ShopId = Guid.NewGuid(),
+                SlipItems = new List<SlipItem>()
+                {
+                    newItem
+                },
+                SlipPayments = new List<SlipPayment>()
+                {
+                    newPayment
+                }
+            };
+
+            var report = new SaleSlipReport
+            {
+                Items = new ()
+                {
+                    newObj
+                }
+            };            
+
+            var container = new PersistentContainer
+            {
+                Items = new ()
+                {
+                    new (typeof(SaleSlipReport)) {
+                        Objects = new List<PersistentObjectBase>()
+                        {
+                            report
+                        }
+                    }
+                }
+            };
+
+            // Act
+            var createdContainer = await provider.CreateContainerAsync(_settings, "dbName", container);
+
+            // Assert
+            Assert.Multiple(() =>
+            {
+                Assert.That(createdContainer, Is.Not.Null);
+                Assert.That(createdContainer.Items.Count, Is.EqualTo(container.Items.Count));
+            });
+        }
+
+        [Test]
+        public async Task ProcessContainer()
+        {
+            // Arrange
+            var provider = _serviceProvider.GetService<IPersistentProvider>();
+            var newItem = new SlipItem
+            {
+                Identity = Guid.NewGuid(),
+                Amount = 100,
+                Quantity = 5,
+            };
+            var newPayment = new SlipPayment
+            {
+                Identity = Guid.NewGuid(),
+                Amount = 500
+            };
+
+            var newObj = new SaleSlip
+            {
+                Identity = Guid.NewGuid(),
+                Date = DateTime.Now,
+                LegalPersonId = Guid.NewGuid(),
+                ShopId = Guid.NewGuid(),
+                SlipItems = new List<SlipItem>()
+                {
+                    newItem
+                },
+                SlipPayments = new List<SlipPayment>()
+                {
+                    newPayment
+                }
+            };
+
+            var report = new SaleSlipReport
+            {
+                Items = new()
+                {
+                    newObj
+                }
+            };
+
+            var container = new PersistentStateContainer
+            {
+                Items = new ()
+                {
+                    new (typeof(SaleSlipReport)) {
+                        ObjectState = Interfaces.ObjectState.Created,
+                        Objects = new ()
+                        {
+                            report
+                        }
+                    }
+                }
+            };
+
+            // Act
+            var createdContainer = await provider.ProcessContainerAsync(_settings, "dbName", container);
+
+            // Assert
+            Assert.Multiple(() =>
+            {
+                Assert.That(createdContainer, Is.Not.Null);
+                Assert.That(createdContainer.Items.Count, Is.EqualTo(container.Items.Count));
+            });
+        }
     }
 }
