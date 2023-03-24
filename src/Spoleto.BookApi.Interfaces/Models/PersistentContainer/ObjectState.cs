@@ -14,16 +14,16 @@
         /// <summary>
         /// Объект создан.
         /// </summary>
-        Added = 1,
+        Created = 1,
 
         /// <summary>
         /// Объект изменён.
         /// </summary>
-        Changed = 2,
+        Updated = 2,
 
         /// <summary>
         /// Объект удалён.
         /// </summary>
-        Removed = 3,
+        Deleted = 3,
     }
 }

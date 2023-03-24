@@ -22,5 +22,10 @@ namespace Spoleto.BookApi.Interfaces.Models
         /// Состояние объектов элемента.
         /// </summary>
         public ObjectState ObjectState { get; set; }
+
+        /// <summary>
+        /// Текстовое представление элемента.
+        /// </summary>
+        public override string ToString() => $"{QualifiedTypeName}, ObjectState = {ObjectState}, Objects.Count = {Objects.Count}";
     }
 }

@@ -77,7 +77,7 @@ namespace Spoleto.BookApi.Client.Tests
             container.Items = items;
             var item1 = new PersistentStateContainerItem(typeof(Unit))
             {
-                ObjectState = Interfaces.ObjectState.Changed,
+                ObjectState = Interfaces.ObjectState.Updated,
                 Objects = new List<PersistentObjectBase>
                 {
                     new Unit {Identity = Guid.NewGuid(),Code="шт.", Name="Штука" },
@@ -87,7 +87,7 @@ namespace Spoleto.BookApi.Client.Tests
             };
             var item2 = new PersistentStateContainerItem(typeof(SaleSlip))
             {
-                ObjectState = Interfaces.ObjectState.Added,
+                ObjectState = Interfaces.ObjectState.Created,
                 Objects = new List<PersistentObjectBase>
                 {
                     new SaleSlip {Date = DateTime.Now, Identity = Guid.NewGuid(), LegalPersonId = Guid.NewGuid() },
