@@ -12,9 +12,14 @@ namespace Spoleto.BookApi.Interfaces
         string Name { get; set; }
 
         /// <summary>
-        /// Код
+        /// Наименование полное
         /// </summary>
-        string Code { get; set; }
+        string FullName { get; set; }
+
+        ///// <summary>
+        ///// Код
+        ///// </summary>
+        //string Code { get; set; }
 
         /// <summary>
         /// Артикул

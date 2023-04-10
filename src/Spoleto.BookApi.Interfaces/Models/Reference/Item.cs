@@ -15,9 +15,14 @@ namespace Spoleto.BookApi.Interfaces.Models
         public string Name { get; set; }
 
         /// <summary>
-        /// Код
+        /// Наименование полное
         /// </summary>
-        public string Code { get; set; }
+        public string FullName { get; set; }
+
+        ///// <summary>
+        ///// Код
+        ///// </summary>
+        //public string Code { get; set; }
 
         /// <summary>
         /// Артикул
