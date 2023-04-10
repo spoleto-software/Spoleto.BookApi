@@ -16,6 +16,8 @@ namespace Spoleto.BookApi.Interfaces.Models
 
         public DateTime? DateClose { get; set; }
 
+        public Guid CompanyDivisionId { get; set; }
+
         public ICompanyDivision CompanyDivision { get; set; }
     }
 }

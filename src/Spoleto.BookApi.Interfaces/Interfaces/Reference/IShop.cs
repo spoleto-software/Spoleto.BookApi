@@ -17,6 +17,9 @@ namespace Spoleto.BookApi.Interfaces
 
         DateTime? DateClose { get; set; }
 
+        Guid CompanyDivisionId { get; set; }
+
+        [RelatedKey(nameof(CompanyDivisionId))]
         ICompanyDivision CompanyDivision { get; set; }
 
         //описать список<RefПодразделенияОрганизаций_КонтактнаяИнформация>
