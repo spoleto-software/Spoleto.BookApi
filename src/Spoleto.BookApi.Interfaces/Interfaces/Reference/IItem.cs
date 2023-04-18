@@ -42,5 +42,14 @@ namespace Spoleto.BookApi.Interfaces
         //[RelatedKey(nameof(ParentId))]
         //IItem Parent { get; set; }
 
+        /// <summary>
+        /// Вид номенклатуры, Id
+        /// </summary>
+        Guid ItemTypeId { get; set; }
+
+        /// <summary>
+        /// Вид ставки НДС
+        /// </summary>
+        VatType VatType { get; set; }
     }
 }
