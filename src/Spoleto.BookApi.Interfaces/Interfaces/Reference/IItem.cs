@@ -4,6 +4,9 @@ using System.Text;
 
 namespace Spoleto.BookApi.Interfaces
 {
+    /// <summary>
+    /// Номенклатура
+    /// </summary>
     public interface IItem : IPersistentReference
     {
         /// <summary>
@@ -34,7 +37,7 @@ namespace Spoleto.BookApi.Interfaces
         /// <summary>
         /// Parent, Id
         /// </summary>
-        Guid ParentId { get; set; }
+        Guid? ParentId { get; set; }
 
         ///// <summary>
         ///// Parent
@@ -45,11 +48,11 @@ namespace Spoleto.BookApi.Interfaces
         /// <summary>
         /// Вид номенклатуры, Id
         /// </summary>
-        Guid ItemTypeId { get; set; }
+        Guid? ItemTypeId { get; set; }
 
         /// <summary>
         /// Вид ставки НДС
         /// </summary>
-        VatType VatType { get; set; }
+        VatType? VatType { get; set; }
     }
 }

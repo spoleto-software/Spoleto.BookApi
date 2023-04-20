@@ -4,6 +4,9 @@ using System.Text;
 
 namespace Spoleto.BookApi.Interfaces
 {
+    /// <summary>
+    /// Товар
+    /// </summary>
     public interface IProduct : IItem
     {
 
@@ -15,7 +18,7 @@ namespace Spoleto.BookApi.Interfaces
         /// <summary>
         /// Единица измерения, Id
         /// </summary>
-        Guid UnitId { get; set; }
+        Guid? UnitId { get; set; }
 
         /// <summary>
         /// Единица измерения
@@ -26,7 +29,7 @@ namespace Spoleto.BookApi.Interfaces
         /// <summary>
         /// Производитель, Id
         /// </summary>
-        Guid ManufacturerId { get; set; }
+        Guid? ManufacturerId { get; set; }
 
         /// <summary>
         /// Производитель
@@ -37,7 +40,7 @@ namespace Spoleto.BookApi.Interfaces
         /// <summary>
         /// Импортер, Id
         /// </summary>
-        Guid ImporterId { get; set; }
+        Guid? ImporterId { get; set; }
 
         /// <summary>
         /// Импортер
@@ -48,7 +51,7 @@ namespace Spoleto.BookApi.Interfaces
         /// <summary>
         /// КодТНВЭД, Id
         /// </summary>
-        Guid TNVEDId { get; set; }
+        Guid? TNVEDId { get; set; }
 
         /// <summary>
         /// КодТНВЭД

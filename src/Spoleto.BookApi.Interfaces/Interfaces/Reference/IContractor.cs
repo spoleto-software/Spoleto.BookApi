@@ -4,6 +4,9 @@ using System.Text;
 
 namespace Spoleto.BookApi.Interfaces
 {
+    /// <summary>
+    /// Контрагент
+    /// </summary>
     public interface IContractor : IPersistentReference
     {
         /// <summary>

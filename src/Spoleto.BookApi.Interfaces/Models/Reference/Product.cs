@@ -17,7 +17,7 @@ namespace Spoleto.BookApi.Interfaces.Models
         /// <summary>
         /// Единица измерения, Id
         /// </summary>
-        public Guid UnitId { get; set; }
+        public Guid? UnitId { get; set; }
 
         /// <summary>
         /// Единица измерения
@@ -27,7 +27,7 @@ namespace Spoleto.BookApi.Interfaces.Models
         /// <summary>
         /// Производитель, Id
         /// </summary>
-        public Guid ManufacturerId { get; set; }
+        public Guid? ManufacturerId { get; set; }
 
         /// <summary>
         /// Производитель
@@ -37,7 +37,7 @@ namespace Spoleto.BookApi.Interfaces.Models
         /// <summary>
         /// Импортер, Id
         /// </summary>
-        public Guid ImporterId { get; set; }
+        public Guid? ImporterId { get; set; }
 
         /// <summary>
         /// Импортер
@@ -47,7 +47,7 @@ namespace Spoleto.BookApi.Interfaces.Models
         /// <summary>
         /// КодТНВЭД, Id
         /// </summary>
-        public Guid TNVEDId { get; set; }
+        public Guid? TNVEDId { get; set; }
 
         /// <summary>
         /// КодТНВЭД

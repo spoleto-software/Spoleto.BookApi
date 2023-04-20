@@ -37,18 +37,18 @@ namespace Spoleto.BookApi.Interfaces.Models
         /// <summary>
         /// Parent, Id
         /// </summary>
-        public Guid ParentId { get; set; }
+        public Guid? ParentId { get; set; }
 
         ///// <summary>
         ///// Parent
         ///// </summary>
         //public IItem Parent { get; set; }
 
-        public Guid ItemTypeId { get; set; }
+        public Guid? ItemTypeId { get; set; }
 
         /// <summary>
         /// Вид ставки НДС
         /// </summary>
-        public VatType VatType { get; set; }
+        public VatType? VatType { get; set; }
     }
 }
