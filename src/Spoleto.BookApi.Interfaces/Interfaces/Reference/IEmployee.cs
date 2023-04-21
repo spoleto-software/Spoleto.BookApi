@@ -7,7 +7,7 @@ namespace Spoleto.BookApi.Interfaces
     /// <summary>
     /// Сотрудник
     /// </summary>
-    public interface IEmployee
+    public interface IEmployee : IPersistentReference
     {
         /// <summary>
         /// Фамилия

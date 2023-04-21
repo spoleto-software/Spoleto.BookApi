@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Spoleto.BookApi.Interfaces.Models;
 
-namespace Spoleto.BookApi.Interfaces.Interfaces
+namespace Spoleto.BookApi.Interfaces
 {
     /// <summary>
     /// Договоры с контрагентами

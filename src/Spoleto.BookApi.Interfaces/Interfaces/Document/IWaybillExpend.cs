@@ -7,7 +7,8 @@ namespace Spoleto.BookApi.Interfaces
     /// <summary>
     /// Накладная на отгрузку
     /// </summary>
-    public interface IWaybillExpend : IWaybill
+    public interface IWaybillExpend<T> : IWaybill 
+        where T: IWaybillItemExpend
     {
         /// <summary>
         /// Тип накладной на отгрузку
@@ -69,5 +70,10 @@ namespace Spoleto.BookApi.Interfaces
         /// </summary>
         [RelatedKey(nameof(StorekeeperId))]
         IEmployee Storekeeper { get; set; }
+
+        /// <summary>
+        /// позиции накладной
+        /// </summary>
+        List<T> WaybillItems { get; set; }
     }
 }

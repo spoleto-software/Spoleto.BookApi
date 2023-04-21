@@ -1,12 +1,13 @@
 ﻿
 using System;
+using System.Collections.Generic;
 
 namespace Spoleto.BookApi.Interfaces
 {
     /// <summary>
     /// Накладная на отгрузку
     /// </summary>
-    public class WaybillExpend : Waybill, IWaybillExpend
+    public class WaybillExpend : Waybill, IWaybillExpend<WaybillItemExpend>
     {
         /// <summary>
         /// Тип накладной на отгрузку
@@ -67,6 +68,11 @@ namespace Spoleto.BookApi.Interfaces
         /// </summary>
         [RelatedKey(nameof(StorekeeperId))]
         public IEmployee Storekeeper { get; set; }
+
+        /// <summary>
+        /// позиции накладной
+        /// </summary>
+        public List<WaybillItemExpend> WaybillItems { get; set; }
 
     }
 }
