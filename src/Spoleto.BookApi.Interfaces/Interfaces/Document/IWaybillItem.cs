@@ -10,6 +10,16 @@ namespace Spoleto.BookApi.Interfaces
     public interface IWaybillItem : IPersistentDocument
     {
         /// <summary>
+        /// Накладная, Id
+        /// </summary>
+        Guid WaybillId { get; set; }
+
+        /// <summary>
+        /// Накладная
+        /// </summary>
+        IWaybill Waybill { get; set; }
+
+        /// <summary>
         /// Номенклатура, Id
         /// </summary>
         Guid ItemId { get; set; }
@@ -23,7 +33,7 @@ namespace Spoleto.BookApi.Interfaces
         /// <summary>
         /// Единица измерения, Id
         /// </summary>
-        Guid UnitId { get; set; }
+        Guid? UnitId { get; set; }
 
         /// <summary>
         /// Единица измерения
@@ -59,7 +69,7 @@ namespace Spoleto.BookApi.Interfaces
         /// <summary>
         /// Страна происхождения, Id
         /// </summary>
-        Guid  CountryId { get; set; }
+        Guid?  CountryId { get; set; }
 
         [RelatedKey(nameof(CountryId))]
         ICountry Country { get; set; }
@@ -67,13 +77,13 @@ namespace Spoleto.BookApi.Interfaces
         /// <summary>
         /// ГТД, Id
         /// </summary>
-        Guid GtdId { get; set; }
+        Guid? CargoCustomsDeclarationId { get; set; }
 
         /// <summary>
         /// ГТД
         /// </summary>
-        [RelatedKey(nameof(GtdId))]
-        ICargoCustomsDeclaration Gtd { get; set; }
+        [RelatedKey(nameof(CargoCustomsDeclarationId))]
+        ICargoCustomsDeclaration CargoCustomsDeclaration { get; set; }
 
         /// <summary>
         /// Счет учета, Id

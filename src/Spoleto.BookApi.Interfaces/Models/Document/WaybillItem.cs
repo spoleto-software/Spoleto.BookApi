@@ -10,6 +10,17 @@ namespace Spoleto.BookApi.Interfaces
     /// </summary>
     public class WaybillItem : PersistentObjectBase, IWaybillItem
     {
+
+        /// <summary>
+        /// Накладная, Id
+        /// </summary>
+        public Guid WaybillId { get; set; }
+
+        /// <summary>
+        /// Накладная
+        /// </summary>
+        public IWaybill Waybill { get; set; }
+
         /// <summary>
         /// Номенклатура, Id
         /// </summary>
@@ -24,7 +35,7 @@ namespace Spoleto.BookApi.Interfaces
         /// <summary>
         /// Единица измерения, Id
         /// </summary>
-        public Guid UnitId { get; set; }
+        public Guid? UnitId { get; set; }
 
         /// <summary>
         /// Единица измерения
@@ -60,7 +71,7 @@ namespace Spoleto.BookApi.Interfaces
         /// <summary>
         /// Страна происхождения, Id
         /// </summary>
-        public Guid CountryId { get; set; }
+        public Guid? CountryId { get; set; }
 
         [RelatedKey(nameof(CountryId))]
         public ICountry Country { get; set; }
@@ -68,13 +79,13 @@ namespace Spoleto.BookApi.Interfaces
         /// <summary>
         /// ГТД, Id
         /// </summary>
-        public Guid GtdId { get; set; }
+        public Guid? CargoCustomsDeclarationId { get; set; }
 
         /// <summary>
         /// ГТД
         /// </summary>
-        [RelatedKey(nameof(GtdId))]
-        public ICargoCustomsDeclaration Gtd { get; set; }
+        [RelatedKey(nameof(CargoCustomsDeclarationId))]
+        public ICargoCustomsDeclaration CargoCustomsDeclaration { get; set; }
 
         /// <summary>
         /// Счет учета, Id
