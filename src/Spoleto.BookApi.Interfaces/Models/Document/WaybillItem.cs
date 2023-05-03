@@ -61,7 +61,7 @@ namespace Spoleto.BookApi.Interfaces
         /// <summary>
         /// Способ учета НДС
         /// </summary>
-        VatAccountingType VatAccountingType { get; set; }
+        public VatAccountingType VatAccountingType { get; set; }
 
         /// <summary>
         /// Ставка НДС
