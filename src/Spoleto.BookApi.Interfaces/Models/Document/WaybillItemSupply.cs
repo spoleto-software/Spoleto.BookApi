@@ -9,5 +9,10 @@ namespace Spoleto.BookApi.Interfaces
     /// </summary>
     public class WaybillItemSupply : WaybillItem, IWaybillItemSupply
     {
+        /// <summary>
+        /// Способ учета НДС
+        /// </summary>
+        public VatAccountingType? VatAccountingType { get; set; }
+
     }
 }

@@ -56,12 +56,6 @@ namespace Spoleto.BookApi.Interfaces
         /// </summary>
         decimal Amount { get; set; }
 
-
-        /// <summary>
-        /// Способ учета НДС
-        /// </summary>
-        VatAccountingType VatAccountingType { get; set; }
-
         /// <summary>
         /// Ставка НДС
         /// </summary>

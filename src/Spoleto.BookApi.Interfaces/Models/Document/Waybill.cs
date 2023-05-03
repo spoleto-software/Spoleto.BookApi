@@ -131,5 +131,10 @@ namespace Spoleto.BookApi.Interfaces
         /// Сумма документа
         /// </summary>
         public decimal TotalAmount { get; set; }
+
+        /// <summary>
+        /// Способ расчета НДС
+        /// </summary>
+        public VatCalculationType VatCalculationType { get; set;}
     }
 }
