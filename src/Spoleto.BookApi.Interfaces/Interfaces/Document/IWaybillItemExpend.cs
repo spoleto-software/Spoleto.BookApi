@@ -22,6 +22,6 @@ namespace Spoleto.BookApi.Interfaces
         /// <summary>
         /// Себестоимость
         /// </summary>
-        decimal SelfCost { get; set; }
+        decimal? SelfCost { get; set; }
     }
 }

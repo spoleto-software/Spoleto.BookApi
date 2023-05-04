@@ -49,14 +49,14 @@ namespace Spoleto.BookApi.Interfaces
         public decimal Quantity { get; set; }
 
         /// <summary>
-        /// Цена 
+        /// Цена без НДС
         /// </summary>
-        public decimal Price { get; set; }
+        public decimal PriceWithoutVat { get; set; }
 
         /// <summary>
-        /// Сумма
+        /// Сумма c НДС
         /// </summary>
-        public decimal Amount { get; set; }
+        public decimal AmountWithVat { get; set; }
 
         /// <summary>
         /// Ставка НДС

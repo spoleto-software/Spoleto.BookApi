@@ -20,6 +20,6 @@ namespace Spoleto.BookApi.Interfaces
         /// <summary>
         /// Себестоимость
         /// </summary>
-        public decimal SelfCost { get; set; }
+        public decimal? SelfCost { get; set; }
     }
 }
