@@ -27,5 +27,16 @@ namespace Spoleto.BookApi.Client.Providers
         /// Async process the objects from the container into the data source.
         /// </summary>
         Task<PersistentStateContainer> ProcessContainerAsync(PersistentProviderOption settings, string dataBaseName, PersistentStateContainer container);
+
+        /// <summary>
+        /// Confirm 1C documents (with making 1C entries) if already exists.
+        /// </summary>
+        PersistentContainer ConfirmContainer(PersistentProviderOption settings, string dataBaseName, PersistentContainer container);
+
+
+        /// <summary>
+        /// Confirm 1C documents (with making 1C entries) if already exists.
+        /// </summary>
+        Task<PersistentContainer> ConfirmContainerAsync(PersistentProviderOption settings, string dataBaseName, PersistentContainer container);
     }
 }

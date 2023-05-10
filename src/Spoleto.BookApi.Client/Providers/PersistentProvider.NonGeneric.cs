@@ -33,5 +33,25 @@ namespace Spoleto.BookApi.Client.Providers
 
             return obj;
         }
+
+        /// <summary>
+        /// Confirm 1C documents (with making 1C entries) if already exists.
+        /// </summary>
+        PersistentContainer IPersistentProvider.ConfirmContainer(PersistentProviderOption settings, string dataBaseName, PersistentContainer container)
+        => Provider.ConfirmContainerAsync(settings, dataBaseName, container).GetAwaiter().GetResult();
+
+
+        /// <summary>
+        /// Confirm 1C documents (with making 1C entries) if already exists.
+        /// </summary>
+        async Task<PersistentContainer> IPersistentProvider.ConfirmContainerAsync(PersistentProviderOption settings, string dataBaseName, PersistentContainer container)
+        {
+            var uri = new Uri(new Uri(settings.ServiceUrl), $"api/PersistentObject/Container/Confirm/{dataBaseName}");
+
+            var jsonModel = JsonHelper.ToJson(container);
+            var obj = await InvokeAsync<PersistentContainer>(settings, uri, HttpMethod.Post, jsonModel).ConfigureAwait(false);
+
+            return obj;
+        }
     }
 }
