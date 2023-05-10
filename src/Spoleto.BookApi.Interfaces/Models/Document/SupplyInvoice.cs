@@ -20,8 +20,29 @@ namespace Spoleto.BookApi.Interfaces.Models
         public DateTime Date { get; set; }
 
         /// <summary>
+        /// Организация, Id
+        /// </summary>
+        public Guid LegalPersonId { get; set; }
+
+        /// <summary>
+        /// Контрагент, Id
+        /// </summary>
+        public Guid ContractorId { get; set; }
+
+        /// <summary>
+        /// Договор с контрагентом, Id
+        /// </summary>
+        public Guid? DocumentReasonId { get; set; }
+
+        /// <summary>
+        /// Валюта, Id
+        /// </summary>
+        public Guid CurrencyId { get; set; }
+
+        /// <summary>
         /// Связанные накладные на поставку
         /// </summary>
         public List<Guid> SupplyWaybills { get; set; }
+
     }
 }
