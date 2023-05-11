@@ -20,6 +20,16 @@ namespace Spoleto.BookApi.Interfaces.Models
         public DateTime Date { get; set; }
 
         /// <summary>
+        /// Номер связанной накладной
+        /// </summary>
+        public string WaybillNumber { get; set; }
+
+        /// <summary>
+        /// Дата связанной накладной
+        /// </summary>
+        public DateTime WaybillDate { get; set; }
+
+        /// <summary>
         /// Организация, Id
         /// </summary>
         public Guid LegalPersonId { get; set; }
@@ -38,6 +48,21 @@ namespace Spoleto.BookApi.Interfaces.Models
         /// Валюта, Id
         /// </summary>
         public Guid CurrencyId { get; set; }
+
+        /// <summary>
+        /// Ответственное лицо, Id
+        /// </summary>
+        public Guid CreatedEmployeeId { get; set; }
+
+        /// <summary>
+        /// Сумма документа
+        /// </summary>
+        public decimal TotalAmount { get; set; }
+
+        /// <summary>
+        /// Сумма НДС
+        /// </summary>
+        public decimal VatAmount { get; set; }
 
         /// <summary>
         /// Связанные накладные на поставку
