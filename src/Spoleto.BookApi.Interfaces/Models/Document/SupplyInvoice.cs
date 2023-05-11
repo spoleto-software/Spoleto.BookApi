@@ -67,7 +67,7 @@ namespace Spoleto.BookApi.Interfaces.Models
         /// <summary>
         /// Связанные накладные на поставку
         /// </summary>
-        public List<Guid> SupplyWaybills { get; set; }
+        public List<WaybillSupply> SupplyWaybills { get; set; }
 
     }
 }
