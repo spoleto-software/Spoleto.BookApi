@@ -20,20 +20,15 @@ namespace Spoleto.BookApi.Interfaces
         DateTime Date { get; set; }
 
         /// <summary>
-        /// Номер связанной накладной
-        /// </summary>
-        string WaybillNumber { get; set; }
-
-        /// <summary>
-        /// Дата связанной накладной
-        /// </summary>
-        DateTime WaybillDate { get; set; }
-
-
-        /// <summary>
         /// Организация, Id
         /// </summary>
         Guid LegalPersonId { get; set; }
+
+        /// <summary>
+        /// Организация
+        /// </summary>
+        [RelatedKey(nameof(LegalPersonId))]
+        ILegalPerson LegalPerson { get; set; }
 
         /// <summary>
         /// Контрагент, Id
@@ -41,14 +36,32 @@ namespace Spoleto.BookApi.Interfaces
         Guid ContractorId { get; set; }
 
         /// <summary>
+        /// Контрагент
+        /// </summary>
+        [RelatedKey(nameof(ContractorId))]
+        IContractor Contractor { get; set; }
+
+        /// <summary>
         /// Договор с контрагентом, Id
         /// </summary>
         Guid? DocumentReasonId { get; set; }
 
         /// <summary>
+        /// Контрагент
+        /// </summary>
+        [RelatedKey(nameof(DocumentReasonId))]
+        IDocumentReason DocumentReason { get; set; }
+
+        /// <summary>
         /// Валюта, Id
         /// </summary>
         Guid CurrencyId { get; set; }
+
+        /// <summary>
+        /// Валюта
+        /// </summary>
+        [RelatedKey(nameof(CurrencyId))]
+        ICurrency Currency { get; set; }
 
         /// <summary>
         /// Ответственное лицо, Id
@@ -66,9 +79,15 @@ namespace Spoleto.BookApi.Interfaces
         decimal VatAmount { get; set;  }
 
         /// <summary>
-        /// Связанные накладные на поставку
+        /// Накладная-основание, Id
         /// </summary>
-        List<WaybillSupply> SupplyWaybills { get; set; }
+        Guid WaybillSupplyId { get; set; }
+
+        /// <summary>
+        /// Накладная-основание
+        /// </summary>
+        [RelatedKey(nameof(WaybillSupplyId))]
+        WaybillSupply WaybillSupply { get; set; }
 
     }
 }
