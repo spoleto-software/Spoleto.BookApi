@@ -5,11 +5,9 @@ using System.Text;
 namespace Spoleto.BookApi.Interfaces
 {
     /// <summary>
-    /// Счет-Фактура на поступление товара
+    ///  Счет-Фактура на реализацию товара
     /// </summary>
-    public interface ISupplyInvoice : IInvoice
+    public interface IExpendInvoice : IInvoice
     {
-      
-
     }
 }
