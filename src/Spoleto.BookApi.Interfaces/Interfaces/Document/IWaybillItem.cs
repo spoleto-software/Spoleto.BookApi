@@ -54,7 +54,7 @@ namespace Spoleto.BookApi.Interfaces
         /// <summary>
         /// Сумма с НДС
         /// </summary>
-        decimal AmountWithVat { get; set; }
+        decimal AmountWithoutVat { get; set; }
 
         /// <summary>
         /// Ставка НДС
