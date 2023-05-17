@@ -127,10 +127,5 @@ namespace Spoleto.BookApi.Interfaces
         /// </summary>
         public string Note { get; set; }
 
-        /// <summary>
-        /// Сумма документа
-        /// </summary>
-        public decimal TotalAmount { get; set; }
-
     }
 }

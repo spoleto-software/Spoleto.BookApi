@@ -262,7 +262,7 @@ namespace Spoleto.BookApi.Client.Tests
             };
 
             // Act
-            var createdContainer = await provider.CreateContainerAsync(_settings, "dbName", container);
+            var createdContainer = await provider.CreateContainerAsync(_settings, "dbName",true, container);
 
             // Assert
             Assert.Multiple(() =>

@@ -11,12 +11,12 @@ namespace Spoleto.BookApi.Client.Providers
         /// <summary>
         /// Inserts the objects from the container into the data source.
         /// </summary>
-        PersistentContainer CreateContainer(PersistentProviderOption settings, string dataBaseName, PersistentContainer container);
+        PersistentContainer CreateContainer(PersistentProviderOption settings, string dataBaseName,bool confirm, PersistentContainer container);
 
         /// <summary>
         /// Async inserts the objects from the container into the data source.
         /// </summary>
-        Task<PersistentContainer> CreateContainerAsync(PersistentProviderOption settings, string dataBaseName, PersistentContainer container);
+        Task<PersistentContainer> CreateContainerAsync(PersistentProviderOption settings, string dataBaseName, bool confirm, PersistentContainer container);
 
         /// <summary>
         /// Process the objects from the container into the data source.

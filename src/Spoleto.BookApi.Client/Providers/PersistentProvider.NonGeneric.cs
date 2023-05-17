@@ -8,12 +8,12 @@ namespace Spoleto.BookApi.Client.Providers
 {
     public partial class PersistentProvider
     {
-        PersistentContainer IPersistentProvider.CreateContainer(PersistentProviderOption settings, string dataBaseName, PersistentContainer container)
-            => Provider.CreateContainerAsync(settings, dataBaseName, container).GetAwaiter().GetResult();
+        PersistentContainer IPersistentProvider.CreateContainer(PersistentProviderOption settings, string dataBaseName, bool confirm, PersistentContainer container)
+            => Provider.CreateContainerAsync(settings, dataBaseName,confirm, container).GetAwaiter().GetResult();
 
-        async Task<PersistentContainer> IPersistentProvider.CreateContainerAsync(PersistentProviderOption settings, string dataBaseName, PersistentContainer container)
+        async Task<PersistentContainer> IPersistentProvider.CreateContainerAsync(PersistentProviderOption settings, string dataBaseName, bool confirm, PersistentContainer container)
         {
-            var uri = new Uri(new Uri(settings.ServiceUrl), $"api/PersistentObject/Container/{dataBaseName}");
+            var uri = new Uri(new Uri(settings.ServiceUrl), $"api/PersistentObject/Container/{dataBaseName}/{confirm}");
 
             var jsonModel = JsonHelper.ToJson(container);
             var obj = await InvokeAsync<PersistentContainer>(settings, uri, HttpMethod.Post, jsonModel).ConfigureAwait(false);
