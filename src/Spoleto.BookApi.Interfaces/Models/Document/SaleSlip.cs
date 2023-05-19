@@ -7,7 +7,7 @@ namespace Spoleto.BookApi.Interfaces.Models
     /// <summary>
     /// Чек на продажу
     /// </summary>
-    public class SaleSlip : PersistentObjectBase, ISaleSlip
+    public class SaleSlip : PersistentObjectBase, ISaleSlip<SlipItem, SlipPayment>
     {
         /// <summary>
         /// Дата чека
@@ -42,30 +42,12 @@ namespace Spoleto.BookApi.Interfaces.Models
         /// <summary>
         /// Позиции чека
         /// </summary>
-        public IEnumerable<SlipItem> SlipItems { get; set; }
+        public List<SlipItem> SlipItems { get; set; }
 
         /// <summary>
         /// Оплаты в чеке
         /// </summary>
-        public IEnumerable<SlipPayment> SlipPayments { get; set; }
+        public List<SlipPayment> SlipPayments { get; set; }
 
-
-        /// <summary>
-        /// Позиции чека
-        /// </summary>
-        IEnumerable<ISlipItem> ISaleSlip.SlipItems
-        {
-            get { return SlipItems.Cast<ISlipItem>(); }
-            set { }
-        }
-
-        /// <summary>
-        /// Оплаты в чеке
-        /// </summary>
-        IEnumerable<ISlipPayment> ISaleSlip.SlipPayments
-        {
-            get { return SlipPayments.Cast<ISlipPayment>(); }
-            set { }
-        }
     }
 }

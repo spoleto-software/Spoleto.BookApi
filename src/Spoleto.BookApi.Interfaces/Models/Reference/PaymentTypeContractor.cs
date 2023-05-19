@@ -15,15 +15,25 @@ namespace Spoleto.BookApi.Interfaces.Models
         public PaymentType PaymentType { get; set; }
 
         /// <summary>
-        /// Parent, Id
+        /// Наименование
         /// </summary>
-        public Guid ParentId { get; set; }
+        public string Name { get; set; }
 
         /// <summary>
-        /// Parent
+        /// Процент банковской комиссии
         /// </summary>
-        [RelatedKey(nameof(ParentId))]
-        public IPaymentTypeContractor Parent { get; set; }
+        public decimal BankCommissionPercent { get; set; }
+
+        /// <summary>
+        /// Договор с контрагентом, Id
+        /// </summary>
+        public Guid DocumentReasonId { get; set; }
+
+        /// <summary>
+        /// Договор с контрагентом
+        /// </summary>
+        [RelatedKey(nameof(DocumentReasonId))]
+        public IDocumentReason DocumentReason { get; set; }
 
         /// <summary>
         /// Организация, Id

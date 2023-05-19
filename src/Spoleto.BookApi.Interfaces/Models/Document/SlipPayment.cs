@@ -17,10 +17,12 @@ namespace Spoleto.BookApi.Interfaces.Models
         /// </summary>
         public Guid PaymentTypeContractorId { get; set; }
 
-        ///// <summary>
-        ///// Вид оплаты
-        ///// </summary>
-        //public IPaymentTypeContractor PaymentTypeContractor { get; set; }
+
+        /// <summary>
+        /// Вид оплаты
+        /// </summary>
+        [RelatedKey(nameof(PaymentTypeContractorId))]
+        public IPaymentTypeContractor PaymentTypeContractor { get; set; }
 
         /// <summary>
         /// Сумма

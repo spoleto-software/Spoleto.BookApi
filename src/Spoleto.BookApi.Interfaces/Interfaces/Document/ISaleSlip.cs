@@ -8,16 +8,18 @@ namespace Spoleto.BookApi.Interfaces
     /// <summary>
     /// Чек на продажу
     /// </summary>
-    public interface ISaleSlip : IBaseSlip
+    public interface ISaleSlip<T,V> : IBaseSlip
+        where T: ISlipItem
+        where V: ISlipPayment
     {
         /// <summary>
         /// Позиции чека
         /// </summary>
-        IEnumerable<ISlipItem> SlipItems { get; set; }
+        List<T> SlipItems { get; set; }
 
         /// <summary>
         /// Оплаты в чеке
         /// </summary>
-        IEnumerable<ISlipPayment> SlipPayments { get; set; }
+        List<V> SlipPayments { get; set; }
     }
 }

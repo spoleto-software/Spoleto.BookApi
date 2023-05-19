@@ -15,15 +15,20 @@ namespace Spoleto.BookApi.Interfaces
         PaymentType PaymentType { get; set; }
 
         /// <summary>
-        /// Parent, Id
+        /// Наименование
         /// </summary>
-        Guid ParentId { get; set; }
+        string Name { get; set; }
 
         /// <summary>
-        /// Parent
+        /// Договор с контрагентом, Id
         /// </summary>
-        [RelatedKey(nameof(ParentId))]
-        IPaymentTypeContractor Parent { get; set; }
+        Guid DocumentReasonId { get; set; }
+
+        /// <summary>
+        /// Договор с контрагентом
+        /// </summary>
+        [RelatedKey(nameof(DocumentReasonId))]
+        IDocumentReason DocumentReason { get; set; }
         
         /// <summary>
         /// Организация, Id
