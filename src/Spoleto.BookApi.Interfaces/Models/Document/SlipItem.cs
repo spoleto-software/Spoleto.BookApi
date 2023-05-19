@@ -45,5 +45,28 @@ namespace Spoleto.BookApi.Interfaces.Models
         /// Себестоимость
         /// </summary>
         public decimal SelfCost { get; set; }
+
+        /// <summary>
+        /// Страна, Id
+        /// </summary>
+        public Guid? CountryId { get; set; }
+
+        /// <summary>
+        /// Страна
+        /// </summary>
+        [RelatedKey(nameof(CountryId))]
+        public ICountry Country { get; set; }
+
+
+        /// <summary>
+        /// ГТД, Id
+        /// </summary>
+        public Guid? CargoCustomsDeclarationId { get; set; }
+
+        /// <summary>
+        /// ГТД
+        /// </summary>
+        [RelatedKey(nameof(CargoCustomsDeclarationId))]
+        public ICargoCustomsDeclaration CargoCustomsDeclaration { get; set; }
     }
 }

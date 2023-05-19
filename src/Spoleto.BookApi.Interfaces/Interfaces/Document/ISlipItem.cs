@@ -52,6 +52,30 @@ namespace Spoleto.BookApi.Interfaces
         /// </summary>
         decimal SelfCost { get; set; }
 
+
+        /// <summary>
+        /// Страна, Id
+        /// </summary>
+        Guid? CountryId { get; set; }
+
+        /// <summary>
+        /// Страна
+        /// </summary>
+        [RelatedKey(nameof(CountryId))]
+        ICountry Country { get; set; }
+
+
+        /// <summary>
+        /// ГТД, Id
+        /// </summary>
+        Guid? CargoCustomsDeclarationId { get; set; }
+
+        /// <summary>
+        /// ГТД
+        /// </summary>
+        [RelatedKey(nameof(CargoCustomsDeclarationId))]
+        ICargoCustomsDeclaration CargoCustomsDeclaration { get; set; }
+
         /// <summary>
         /// Код маркировки, Id
         /// </summary>

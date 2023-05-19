@@ -40,7 +40,7 @@ namespace Spoleto.BookApi.Interfaces.Models
         /// <summary>
         /// Parent, Id
         /// </summary>
-        public Guid ParentId { get; set; }
+        public Guid? ParentId { get; set; }
 
         /// <summary>
         /// Parent
