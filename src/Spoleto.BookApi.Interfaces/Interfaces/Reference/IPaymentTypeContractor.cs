@@ -22,7 +22,7 @@ namespace Spoleto.BookApi.Interfaces
         /// <summary>
         /// Договор с контрагентом, Id
         /// </summary>
-        Guid DocumentReasonId { get; set; }
+        Guid? DocumentReasonId { get; set; }
 
         /// <summary>
         /// Договор с контрагентом
