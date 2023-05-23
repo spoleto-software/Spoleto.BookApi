@@ -8,8 +8,13 @@ namespace Spoleto.BookApi.Interfaces.Models
     public class SaleSlipReport : PersistentObjectBase
     {
         /// <summary>
-        /// Коллекция чеков для формирования (ОРП)
+        /// Коллекция чеков на продажу для формирования ОРП
         /// </summary>
-        public List<SaleSlip> Items { get; set; }
+        public List<SaleSlip> SaleItems { get; set; }
+
+        /// <summary>
+        /// Коллекция чеков на возврат для формирования ОРП
+        /// </summary>
+        public List<ReturnSlip> ReturnItems { get; set; }
     }
 }

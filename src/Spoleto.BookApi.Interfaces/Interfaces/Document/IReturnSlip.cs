@@ -1,16 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections;
 using System.Text;
 
 namespace Spoleto.BookApi.Interfaces
 {
     /// <summary>
-    /// Чек на продажу
+    /// Чек на возврат
     /// </summary>
-    public interface ISaleSlip<T,V> : IBaseSlip
-        where T: ISaleSlipItem
-        where V: ISaleSlipPayment
+    public interface IReturnSlip<T, V> : IBaseSlip
+        where T : IReturnSlipItem
+        where V : IReturnSlipPayment
     {
         /// <summary>
         /// Позиции чека

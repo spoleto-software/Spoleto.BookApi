@@ -51,13 +51,13 @@ namespace Spoleto.BookApi.Client.Tests
         {
             // Arrange
             var provider = _serviceProvider.GetService<IPersistentProvider>();
-            var newItem = new SlipItem
+            var newItem = new SaleSlipItem
             {
                 Identity = Guid.NewGuid(),
                 Amount = 100,
                 Quantity = 5,
             };
-            var newPayment = new SlipPayment
+            var newPayment = new SaleSlipPayment
             {
                 Identity = Guid.NewGuid(),
                 Amount = 500
@@ -69,11 +69,11 @@ namespace Spoleto.BookApi.Client.Tests
                 Date = DateTime.Now,
                 LegalPersonId = Guid.NewGuid(),
                 ShopId = Guid.NewGuid(),
-                SlipItems = new List<SlipItem>()
+                SlipItems = new List<SaleSlipItem>()
                 {
                     newItem
                 },
-                SlipPayments = new List<SlipPayment>()
+                SlipPayments = new List<SaleSlipPayment>()
                 {
                     newPayment
                 }
@@ -95,13 +95,13 @@ namespace Spoleto.BookApi.Client.Tests
         {
             // Arrange
             var provider = _serviceProvider.GetService<IPersistentProvider>();
-            var newItem = new SlipItem
+            var newItem = new SaleSlipItem
             {
                 Identity = Guid.NewGuid(),
                 Amount = 100,
                 Quantity = 5,
             };
-            var newPayment = new SlipPayment
+            var newPayment = new SaleSlipPayment
             {
                 Identity = Guid.NewGuid(),
                 Amount = 500
@@ -113,11 +113,11 @@ namespace Spoleto.BookApi.Client.Tests
                 Date = DateTime.Now,
                 LegalPersonId = Guid.NewGuid(),
                 ShopId = Guid.NewGuid(),
-                SlipItems = new List<SlipItem>()
+                SlipItems = new List<SaleSlipItem>()
                 {
                     newItem
                 },
-                SlipPayments = new List<SlipPayment>()
+                SlipPayments = new List<SaleSlipPayment>()
                 {
                     newPayment
                 }
@@ -212,13 +212,13 @@ namespace Spoleto.BookApi.Client.Tests
         {
             // Arrange
             var provider = _serviceProvider.GetService<IPersistentProvider>();
-            var newItem = new SlipItem
+            var newItem = new SaleSlipItem
             {
                 Identity = Guid.NewGuid(),
                 Amount = 100,
                 Quantity = 5,
             };
-            var newPayment = new SlipPayment
+            var newPayment = new SaleSlipPayment
             {
                 Identity = Guid.NewGuid(),
                 Amount = 500
@@ -230,11 +230,11 @@ namespace Spoleto.BookApi.Client.Tests
                 Date = DateTime.Now,
                 LegalPersonId = Guid.NewGuid(),
                 ShopId = Guid.NewGuid(),
-                SlipItems = new List<SlipItem>()
+                SlipItems = new List<SaleSlipItem>()
                 {
                     newItem
                 },
-                SlipPayments = new List<SlipPayment>()
+                SlipPayments = new List<SaleSlipPayment>()
                 {
                     newPayment
                 }
@@ -242,7 +242,7 @@ namespace Spoleto.BookApi.Client.Tests
 
             var report = new SaleSlipReport
             {
-                Items = new ()
+                SaleItems = new ()
                 {
                     newObj
                 }
@@ -277,13 +277,13 @@ namespace Spoleto.BookApi.Client.Tests
         {
             // Arrange
             var provider = _serviceProvider.GetService<IPersistentProvider>();
-            var newItem = new SlipItem
+            var newItem = new SaleSlipItem
             {
                 Identity = Guid.NewGuid(),
                 Amount = 100,
                 Quantity = 5,
             };
-            var newPayment = new SlipPayment
+            var newPayment = new SaleSlipPayment
             {
                 Identity = Guid.NewGuid(),
                 Amount = 500
@@ -295,11 +295,11 @@ namespace Spoleto.BookApi.Client.Tests
                 Date = DateTime.Now,
                 LegalPersonId = Guid.NewGuid(),
                 ShopId = Guid.NewGuid(),
-                SlipItems = new List<SlipItem>()
+                SlipItems = new List<SaleSlipItem>()
                 {
                     newItem
                 },
-                SlipPayments = new List<SlipPayment>()
+                SlipPayments = new List<SaleSlipPayment>()
                 {
                     newPayment
                 }
@@ -307,7 +307,7 @@ namespace Spoleto.BookApi.Client.Tests
 
             var report = new SaleSlipReport
             {
-                Items = new()
+                SaleItems = new()
                 {
                     newObj
                 }
