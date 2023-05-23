@@ -68,5 +68,25 @@ namespace Spoleto.BookApi.Interfaces.Models
         /// </summary>
         [RelatedKey(nameof(CargoCustomsDeclarationId))]
         public ICargoCustomsDeclaration CargoCustomsDeclaration { get; set; }
+
+        /// <summary>
+        /// Счет доходов, Id
+        /// </summary>
+        public Guid IncomeAccountId { get; set; }
+
+        /// <summary>
+        /// Счет расходов, Id
+        /// </summary>
+        public Guid ExpenseAccountId { get; set; }
+
+        /// <summary>
+        /// Счет учета, Id
+        /// </summary>
+        public Guid AccountId { get; set; }
+
+        /// <summary>
+        /// Счета учета НДС, Id
+        /// </summary>
+        public Guid VatAccountId { get; set; }
     }
 }

@@ -77,6 +77,27 @@ namespace Spoleto.BookApi.Interfaces
         ICargoCustomsDeclaration CargoCustomsDeclaration { get; set; }
 
         /// <summary>
+        /// Счет доходов, Id
+        /// </summary>
+        Guid IncomeAccountId { get; set; }
+
+        /// <summary>
+        /// Счет расходов, Id
+        /// </summary>
+        Guid ExpenseAccountId { get; set; }
+
+
+        /// <summary>
+        /// Счет учета, Id
+        /// </summary>
+        Guid AccountId { get; set; }
+
+        /// <summary>
+        /// Счета учета НДС, Id
+        /// </summary>
+        Guid VatAccountId { get; set; }
+
+        /// <summary>
         /// Код маркировки, Id
         /// </summary>
         //public List<Guid> MarkingCodeId { get; set; } TODO: описать в наследнике
