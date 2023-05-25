@@ -11,13 +11,13 @@ namespace Spoleto.BookApi.Interfaces.Models
     public class ReturnSlipItem : SlipItem, IReturnSlipItem
     {
         /// <summary>
-        /// Номер фискального чека (на продажу)
+        /// Номер фискального чека
         /// </summary>
         public string FiscalSlipNumber { get; set; }
 
         /// <summary>
         /// Дата реализации
         /// </summary>
-        public string SaleDate { get; set; }
+        public DateTime? SaleDate { get; set; }
     }
 }
