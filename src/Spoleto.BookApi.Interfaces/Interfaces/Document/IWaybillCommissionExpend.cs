@@ -3,12 +3,9 @@ using System.Collections.Generic;
 using System.Text;
 
 namespace Spoleto.BookApi.Interfaces
-{
-    /// <summary>
-    /// Накладная на отгрузку
-    /// </summary>
-    public interface IWaybillExpend<T> : IWaybillExpendBase 
-        where T: IWaybillItemExpend
+{ 
+    public interface IWaybillCommissionExpend<T> : IWaybillExpendBase
+    where T: IWaybillItemCommissionExpend
     {
         /// <summary>
         /// позиции накладной
