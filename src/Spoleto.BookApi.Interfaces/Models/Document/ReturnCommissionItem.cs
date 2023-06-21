@@ -10,14 +10,9 @@ namespace Spoleto.BookApi.Interfaces.Models
     public class ReturnCommissionItem : PersistentObjectBase, IReturnCommissionItem
     {
         /// <summary>
-        /// Накладная, Id
+        /// Ссылка на документ, Id
         /// </summary>
-        public Guid WaybillId { get; set; }
-
-        /// <summary>
-        /// Накладная
-        /// </summary>
-        public IWaybill Waybill { get; set; }
+        public Guid ReturnCommissionId { get; set; }
 
         /// <summary>
         /// Номенклатура, Id

@@ -10,14 +10,9 @@ namespace Spoleto.BookApi.Interfaces
     public interface IReturnCommissionItem
     {
         /// <summary>
-        /// Накладная, Id
+        /// Ссылка на документ, Id
         /// </summary>
-        Guid WaybillId { get; set; }
-
-        /// <summary>
-        /// Накладная
-        /// </summary>
-        IWaybill Waybill { get; set; }
+        Guid ReturnCommissionId { get; set; }
 
         /// <summary>
         /// Номенклатура, Id
