@@ -2,98 +2,101 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Spoleto.BookApi.Interfaces
+namespace Spoleto.BookApi.Interfaces.Models
 {
     /// <summary>
-    /// Позиция накладной
+    /// Позиции документа возврата с комиссии
     /// </summary>
-    public interface IWaybillItem : IPersistentDocument
+    public class ReturnCommissionItem : PersistentObjectBase, IReturnCommissionItem
     {
         /// <summary>
         /// Накладная, Id
         /// </summary>
-        Guid WaybillId { get; set; }
+        public Guid WaybillId { get; set; }
 
         /// <summary>
         /// Накладная
         /// </summary>
-        IWaybill Waybill { get; set; }
+        public IWaybill Waybill { get; set; }
 
         /// <summary>
         /// Номенклатура, Id
         /// </summary>
-        Guid ItemId { get; set; }
+        public Guid ItemId { get; set; }
 
         /// <summary>
         /// Номенклатура
         /// </summary>
         [RelatedKey(nameof(ItemId))]
-        IItem Item { get; set; }
-
-        /// <summary>
-        /// Единица измерения, Id
-        /// </summary>
-        Guid? UnitId { get; set; }
-
-        /// <summary>
-        /// Единица измерения
-        /// </summary>
-        [RelatedKey(nameof(UnitId))]
-        IUnit Unit { get; set; }
+        public IItem Item { get; set; }
 
         /// <summary>
         /// Количество
         /// </summary>
-        decimal Quantity { get; set; }  
+        public decimal Quantity { get; set; }
 
         /// <summary>
         /// Цена без НДС
         /// </summary>
-        decimal PriceWithoutVat { get; set; }
+        public decimal PriceWithoutVat { get; set; }
 
         /// <summary>
         /// Сумма без НДС
         /// </summary>
-        decimal AmountWithoutVat { get; set; }
+        public decimal AmountWithoutVat { get; set; }
 
         /// <summary>
         /// Ставка НДС
         /// </summary>
-        Vat VatValue { get; set; }
+        public Vat VatValue { get; set; }
 
         /// <summary>
         /// Сумма НДС
         /// </summary>
-        decimal VatAmount { get; set; }
+        public decimal VatAmount { get; set; }
 
         /// <summary>
         /// Страна происхождения, Id
         /// </summary>
-        Guid?  CountryId { get; set; }
+        public Guid? CountryId { get; set; }
 
         [RelatedKey(nameof(CountryId))]
-        ICountry Country { get; set; }
+        public ICountry Country { get; set; }
 
         /// <summary>
         /// ГТД, Id
         /// </summary>
-        Guid? CargoCustomsDeclarationId { get; set; }
+        public Guid? CargoCustomsDeclarationId { get; set; }
 
         /// <summary>
         /// ГТД
         /// </summary>
         [RelatedKey(nameof(CargoCustomsDeclarationId))]
-        ICargoCustomsDeclaration CargoCustomsDeclaration { get; set; }
+        public ICargoCustomsDeclaration CargoCustomsDeclaration { get; set; }
 
         /// <summary>
         /// Счет учета, Id
         /// </summary>
-        Guid AccountId { get; set; }
+        public Guid AccountId { get; set; }
 
         /// <summary>
         /// Счета учета НДС, Id
         /// </summary>
-        Guid VatAccountId { get; set; }
+        public Guid VatAccountId { get; set; }
 
+        /// <summary>
+        /// Счет доходов, Id
+        /// </summary>
+        public Guid IncomeAccountId { get; set; }
+
+        /// <summary>
+        /// Счет расходов, Id
+        /// </summary>
+        public Guid ExpenseAccountId { get; set; }
+
+        /// <summary>
+        /// Себестоимость
+        /// </summary>
+        public decimal? SelfCost { get; set; }
     }
 }

@@ -5,9 +5,9 @@ using System.Text;
 namespace Spoleto.BookApi.Interfaces
 {
     /// <summary>
-    /// Позиция накладной
+    /// Позиции документа возврата с комиссии
     /// </summary>
-    public interface IWaybillItem : IPersistentDocument
+    public interface IReturnCommissionItem
     {
         /// <summary>
         /// Накладная, Id
@@ -31,20 +31,9 @@ namespace Spoleto.BookApi.Interfaces
         IItem Item { get; set; }
 
         /// <summary>
-        /// Единица измерения, Id
-        /// </summary>
-        Guid? UnitId { get; set; }
-
-        /// <summary>
-        /// Единица измерения
-        /// </summary>
-        [RelatedKey(nameof(UnitId))]
-        IUnit Unit { get; set; }
-
-        /// <summary>
         /// Количество
         /// </summary>
-        decimal Quantity { get; set; }  
+        decimal Quantity { get; set; }
 
         /// <summary>
         /// Цена без НДС
@@ -69,7 +58,7 @@ namespace Spoleto.BookApi.Interfaces
         /// <summary>
         /// Страна происхождения, Id
         /// </summary>
-        Guid?  CountryId { get; set; }
+        Guid? CountryId { get; set; }
 
         [RelatedKey(nameof(CountryId))]
         ICountry Country { get; set; }
@@ -94,6 +83,21 @@ namespace Spoleto.BookApi.Interfaces
         /// Счета учета НДС, Id
         /// </summary>
         Guid VatAccountId { get; set; }
+
+        /// <summary>
+        /// Счет доходов, Id
+        /// </summary>
+        Guid IncomeAccountId { get; set; }
+
+        /// <summary>
+        /// Счет расходов, Id
+        /// </summary>
+        Guid ExpenseAccountId { get; set; }
+
+        /// <summary>
+        /// Себестоимость
+        /// </summary>
+        decimal? SelfCost { get; set; }
 
     }
 }
