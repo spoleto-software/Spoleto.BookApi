@@ -90,6 +90,11 @@ namespace Spoleto.BookApi.Interfaces.Models
         public Guid ExpenseAccountId { get; set; }
 
         /// <summary>
+        /// Счет учета передачи на комиссию, Id
+        /// </summary>
+        public Guid CommissionAccountId { get; set; }
+
+        /// <summary>
         /// Себестоимость
         /// </summary>
         public decimal? SelfCost { get; set; }
