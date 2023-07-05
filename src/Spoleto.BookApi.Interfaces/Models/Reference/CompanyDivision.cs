@@ -2,60 +2,57 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Spoleto.BookApi.Interfaces
+namespace Spoleto.BookApi.Interfaces.Models
 {
     /// <summary>
     /// Подразделения организаций
     /// </summary>
-    public interface ICompanyDivision : IPersistentReference
+    public class CompanyDivision : PersistentObjectBase, ICompanyDivision
     {
         /// <summary>
         /// Наименование
         /// </summary>
-        string Name { get; set; }
+        public string Name { get; set; }
 
         /// <summary>
         /// Префикс
         /// </summary>
-        string Prefix { get; set; }
+        public string Prefix { get; set; }
 
         /// <summary>
         /// Дата создания
         /// </summary>
-        DateTime DateCreate { get; set; }
+        public DateTime DateCreate { get; set; }
 
         /// <summary>
         /// Дата закрытия
         /// </summary>
-        DateTime? DateClose { get; set; }
+        public DateTime? DateClose { get; set; }
 
         /// <summary>
         /// КПП
         /// </summary>
-        string KPP { get; set; }
+        public string KPP { get; set; }
 
         /// <summary>
         /// Код по ОКПО
         /// </summary>
-        string OKPO { get; set; }
+        public string OKPO { get; set; }
 
         /// <summary>
         /// Фирма, Id
         /// </summary>
-        Guid OwnerId { get; set; }
+        public Guid OwnerId { get; set; }
 
         /// <summary>
         /// Parent, Id
         /// </summary>
-        Guid ParentId { get; set; }
+        public Guid ParentId { get; set; }
 
         /// <summary>
         /// Parent
         /// </summary>
         [RelatedKey(nameof(ParentId))]
-        ICompanyDivision Parent { get; set; }
-
-
-        //описать список<RefПодразделенияОрганизаций_КонтактнаяИнформация>
+        public ICompanyDivision Parent { get; set; }
     }
 }
