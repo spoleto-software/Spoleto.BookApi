@@ -9,7 +9,11 @@ namespace Spoleto.BookApi.Interfaces
     /// </summary>
     public class WaybillExpend : WaybillExpendBase, IWaybillExpend<WaybillItemExpend>
     {
-        
+        /// <summary>
+        /// Субконто (Номенклатурная группа) Id
+        /// </summary>
+        public Guid? SubcontoNomenclatureGroupId { get; set; }
+
         /// <summary>
         /// позиции накладной
         /// </summary>

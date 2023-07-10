@@ -65,5 +65,6 @@ namespace Spoleto.BookApi.Interfaces
         /// </summary>
         [RelatedKey(nameof(StorekeeperId))]
         IEmployee Storekeeper { get; set; }
+
     }
 }

@@ -95,5 +95,10 @@ namespace Spoleto.BookApi.Interfaces
         /// </summary>
         Guid VatAccountId { get; set; }
 
+        /// <summary>
+        /// Субконто (Номенклатурная группа) Id
+        /// </summary>
+        Guid? SubcontoNomenclatureGroupId { get; set; }
+
     }
 }

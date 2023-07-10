@@ -22,7 +22,7 @@ namespace Spoleto.BookApi.Interfaces.Models
         /// <summary>
         /// Дата создания
         /// </summary>
-        public DateTime DateCreate { get; set; }
+        public DateTime? DateCreate { get; set; }
 
         /// <summary>
         /// Дата закрытия
@@ -47,7 +47,7 @@ namespace Spoleto.BookApi.Interfaces.Models
         /// <summary>
         /// Parent, Id
         /// </summary>
-        public Guid ParentId { get; set; }
+        public Guid? ParentId { get; set; }
 
         /// <summary>
         /// Parent

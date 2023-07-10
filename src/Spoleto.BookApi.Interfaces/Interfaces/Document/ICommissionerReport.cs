@@ -124,6 +124,10 @@ namespace Spoleto.BookApi.Interfaces
         /// </summary>
         Guid? ExpenseAccountId { get; set; }
 
+        /// <summary>
+        /// Субконто (Статьи затрат) Id
+        /// </summary>
+        Guid? SubcontoExpenseTypeId { get; set; }
 
         /// <summary>
         /// Проданные товары
