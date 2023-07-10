@@ -10,10 +10,6 @@ namespace Spoleto.BookApi.Interfaces
     public interface IWaybillExpend<T> : IWaybillExpendBase 
         where T: IWaybillItemExpend
     {
-        /// <summary>
-        /// Субконто (Номенклатурная группа) Id
-        /// </summary>
-        Guid? SubcontoNomenclatureGroupId { get; set; }
 
         /// <summary>
         /// позиции накладной

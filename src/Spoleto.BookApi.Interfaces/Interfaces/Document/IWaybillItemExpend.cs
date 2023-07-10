@@ -20,6 +20,11 @@ namespace Spoleto.BookApi.Interfaces
        Guid ExpenseAccountId { get; set; }
 
         /// <summary>
+        /// Субконто (Номенклатурная группа) Id
+        /// </summary>
+        Guid? SubcontoNomenclatureGroupId { get; set; }
+
+        /// <summary>
         /// Себестоимость
         /// </summary>
         decimal? SelfCost { get; set; }

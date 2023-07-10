@@ -18,6 +18,11 @@ namespace Spoleto.BookApi.Interfaces
         public Guid ExpenseAccountId { get; set; }
 
         /// <summary>
+        /// Субконто (Номенклатурная группа) Id
+        /// </summary>
+        public Guid? SubcontoNomenclatureGroupId { get; set; }
+
+        /// <summary>
         /// Себестоимость
         /// </summary>
         public decimal? SelfCost { get; set; }
