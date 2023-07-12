@@ -16,6 +16,12 @@ namespace Spoleto.BookApi.Interfaces.Models
         /// </summary>
         public Item Item { get; set; }
 
+
+        /// <summary>
+        /// Субконто (Номенклатурная группа) Id
+        /// </summary>
+        public Guid? SubcontoNomenclatureGroupId { get; set; }
+
         /// <summary>
         /// Количество
         /// </summary>

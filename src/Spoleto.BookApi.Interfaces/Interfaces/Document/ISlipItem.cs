@@ -22,6 +22,12 @@ namespace Spoleto.BookApi.Interfaces
         [RelatedKey(nameof(ItemId))]
         Item Item { get; set; }
 
+
+        /// <summary>
+        /// Субконто (Номенклатурная группа) Id
+        /// </summary>
+        Guid? SubcontoNomenclatureGroupId { get; set; }
+
         /// <summary>
         /// Количество
         /// </summary>
