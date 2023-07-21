@@ -9,6 +9,9 @@ namespace Spoleto.BookApi.Interfaces.Models
     /// </summary>
     public class SupplyInvoice : Invoice
     {
-
+        /// <summary>
+        /// НДС предъявлен к вычету
+        /// </summary>
+        public bool VatdDeductible {get;set;}
     }
 }

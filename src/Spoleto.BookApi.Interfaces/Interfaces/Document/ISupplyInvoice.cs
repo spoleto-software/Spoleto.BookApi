@@ -9,7 +9,9 @@ namespace Spoleto.BookApi.Interfaces
     /// </summary>
     public interface ISupplyInvoice : IInvoice
     {
-      
-
+        /// <summary>
+        /// НДС предъявлен к вычету
+        /// </summary>
+        bool VatdDeductible {get;set;}
     }
 }

@@ -24,20 +24,27 @@ namespace Spoleto.BookApi.Interfaces.Models
         /// </summary>
         public Guid WarehouseId { get; set; }
 
-        ///// <summary>
-        ///// Склад
-        ///// </summary>
-        //public IWarehouse Warehouse { get; set; }
+        /// <summary>
+        /// Склад
+        /// </summary>
+        [RelatedKey(nameof(WarehouseId))]
+        public IWarehouse Warehouse { get; set; }
 
         /// <summary>
         /// Место продажи, Id
         /// </summary>
         public Guid ShopId { get; set; }
 
-        ///// <summary>
-        ///// Место продажи
-        ///// </summary>
-        //public IShop Shop { get; set; }
+        /// <summary>
+        /// Место продажи
+        /// </summary>
+        [RelatedKey(nameof(ShopId))]
+        public IShop Shop { get; set; }
+
+        /// <summary>
+        /// ОРП, Id (если не указан, будет создан автоматически)
+        /// </summary>
+        public Guid SaleSlipReportId { get; set; }
 
     }
 }
