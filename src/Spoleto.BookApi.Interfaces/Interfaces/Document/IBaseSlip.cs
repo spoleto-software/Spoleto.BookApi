@@ -42,7 +42,7 @@ namespace Spoleto.BookApi.Interfaces
         /// <summary>
         /// ОРП, Id (если не указан, будет создан автоматически)
         /// </summary>
-        Guid SaleSlipReportId { get; set; }
+        Guid? SaleSlipReportId { get; set; }
 
     }
 }
