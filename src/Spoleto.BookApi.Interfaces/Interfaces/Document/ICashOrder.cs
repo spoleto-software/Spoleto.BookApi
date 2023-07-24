@@ -55,7 +55,7 @@ namespace Spoleto.BookApi.Interfaces
         /// <summary>
         /// Валюта, Id
         /// </summary>
-        Guid CurrencyId { get; set; }
+        Guid? CurrencyId { get; set; }
 
         /// <summary>
         /// Валюта
@@ -69,21 +69,14 @@ namespace Spoleto.BookApi.Interfaces
         Guid? CashAccountId { get; set; }
 
         /// <summary>
-        /// Контрагент, Id
+        /// Склад, Id
         /// </summary>
-        Guid ContractorId { get; set; }
-
-        /// <summary>
-        /// Контрагент
-        /// </summary>
-        [RelatedKey(nameof(Contractor))]
-        IContractor Contractor { get; set; }
-
+        Guid? WarehouseId { get; set; }
 
         /// <summary>
         /// Счет учета расчетов с контрагентом, Id
         /// </summary>
-        Guid ContractorSettlementAccountId { get; set; }
+        Guid? ContractorSettlementAccountId { get; set; }
 
         /// <summary>
         ///Основание
@@ -98,7 +91,7 @@ namespace Spoleto.BookApi.Interfaces
         /// <summary>
         /// ОРП-основание, Id
         /// </summary>
-        Guid SaleSlipReportId { get; set; }
+        Guid? SaleSlipReportId { get; set; }
 
         ///// <summary>
         ///// Ставка НДС
