@@ -132,17 +132,22 @@ namespace Spoleto.BookApi.Interfaces
         /// <summary>
         ///  Способ Зачета Авансов
         /// </summary>
-        AdvanceSettlementType AdvanceSettlementType { get; set; }
+        AdvanceSettlementType? AdvanceSettlementType { get; set; }
 
         /// <summary>
         /// Способ Расчета Комиссионного Вознаграждения
         /// </summary>
-        CalcCommissionType CalcCommissionType { get; set; }
+        CalcCommissionType? CalcCommissionType { get; set; }
 
         /// <summary>
         ///  Процент Комиссионного Вознаграждения
         /// </summary>
         decimal? PercentCommissionPayment { get; set; }
+
+        /// <summary>
+        ///  Удержать Вознаграждение
+        /// </summary>
+        bool WithholdPayment { get; set; }
 
         /// <summary>
         /// Проданные товары

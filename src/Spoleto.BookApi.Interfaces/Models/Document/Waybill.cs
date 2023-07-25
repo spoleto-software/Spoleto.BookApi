@@ -131,7 +131,7 @@ namespace Spoleto.BookApi.Interfaces
         /// <summary>
         ///  Способ Зачета Авансов
         /// </summary>
-        public AdvanceSettlementType AdvanceSettlementType { get; set; }
+        public AdvanceSettlementType? AdvanceSettlementType { get; set; }
 
     }
 }
