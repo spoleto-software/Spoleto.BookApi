@@ -64,6 +64,11 @@ namespace Spoleto.BookApi.Interfaces
         ICurrency Currency { get; set; }
 
         /// <summary>
+        /// Сумма
+        /// </summary>
+        decimal? Amount { get; set; }
+
+        /// <summary>
         /// Счет Касса,  Id
         /// </summary>
         Guid? CashAccountId { get; set; }
