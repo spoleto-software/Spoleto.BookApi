@@ -130,6 +130,21 @@ namespace Spoleto.BookApi.Interfaces
         Guid? SubcontoExpenseTypeId { get; set; }
 
         /// <summary>
+        ///  Способ Зачета Авансов
+        /// </summary>
+        AdvanceSettlementType AdvanceSettlementType { get; set; }
+
+        /// <summary>
+        /// Способ Расчета Комиссионного Вознаграждения
+        /// </summary>
+        CalcCommissionType CalcCommissionType { get; set; }
+
+        /// <summary>
+        ///  Процент Комиссионного Вознаграждения
+        /// </summary>
+        decimal? PercentCommissionPayment { get; set; }
+
+        /// <summary>
         /// Проданные товары
         /// </summary>
         List<T> CommissionerReportSaleItems { get; set; }
