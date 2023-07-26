@@ -7,14 +7,9 @@ namespace Spoleto.BookApi.Interfaces
     /// <summary>
     /// Накладная на поставку
     /// </summary>
-    public interface IWaybillSupply<T> : IWaybill
+    public interface IWaybillSupply<T> : IWaybillSupplyBase
         where T: IWaybillItemSupply
     {
-        /// <summary>
-        /// Тип накладной на поставку
-        /// </summary>
-        WaybillSupplyType? WaybillSupplyType { get; set; }
-
         /// <summary>
         /// позиции накладной
         /// </summary>

@@ -1,18 +1,14 @@
 ﻿using System.Collections.Generic;
 using Spoleto.BookApi.Interfaces;
+using Spoleto.BookApi.Interfaces.Models;
 
 namespace Spoleto.BookApi.Interfaces
 {
     /// <summary>
     /// Накладная
     /// </summary>
-    public class WaybillSupply : Waybill, IWaybillSupply<WaybillItemSupply>
+    public class WaybillSupply : WaybillSupplyBase, IWaybillSupply<WaybillItemSupply>
     {
-        /// <summary>
-        /// Тип накладной на поставку
-        /// </summary>
-        public WaybillSupplyType? WaybillSupplyType { get; set; }
-
         /// <summary>
         /// позиции накладной
         /// </summary>
