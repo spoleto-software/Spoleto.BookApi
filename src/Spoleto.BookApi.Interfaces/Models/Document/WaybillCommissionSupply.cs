@@ -10,6 +10,11 @@ namespace Spoleto.BookApi.Interfaces.Models
     public class WaybillCommissionSupply : WaybillSupplyBase, IWaybillCommissionSupply<WaybillItemCommissionSupply>
     {
         /// <summary>
+        /// Счет учета расчетов с комиссионером, Id
+        /// </summary>
+        public Guid? CommissionerAccountId { get; set; }
+
+        /// <summary>
         /// позиции накладной
         /// </summary>
         public List<WaybillItemCommissionSupply> WaybillItems { get; set; }
