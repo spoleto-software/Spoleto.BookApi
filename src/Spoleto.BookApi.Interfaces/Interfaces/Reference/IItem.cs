@@ -54,5 +54,10 @@ namespace Spoleto.BookApi.Interfaces
         /// Вид ставки НДС
         /// </summary>
         VatType? VatType { get; set; }
+
+        /// <summary>
+        /// Является группой
+        /// </summary>
+        bool IsGroup { get; set; }  
     }
 }
