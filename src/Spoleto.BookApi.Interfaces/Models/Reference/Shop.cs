@@ -12,11 +12,11 @@ namespace Spoleto.BookApi.Interfaces.Models
 
         public string Prefix { get; set; }
 
-        public DateTime DateCreate { get; set; }
+        public DateTime? DateCreate { get; set; }
 
         public DateTime? DateClose { get; set; }
 
-        public Guid CompanyDivisionId { get; set; }
+        public Guid? CompanyDivisionId { get; set; }
 
         public ICompanyDivision CompanyDivision { get; set; }
     }
