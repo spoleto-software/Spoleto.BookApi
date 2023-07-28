@@ -1,13 +1,16 @@
 ﻿using System;
-using Spoleto.BookApi.Interfaces.Models;
+using System.Collections.Generic;
+using System.Text;
 
-namespace Spoleto.BookApi.Interfaces
+namespace Spoleto.BookApi.Interfaces.Models
 {
-    /// <summary>
-    /// Накладная
-    /// </summary>
-    public class Waybill : PersistentObjectBase, IWaybill
+    public class ReturnSupplier : PersistentObjectBase, IReturnSupplier<ReturnSupplierItem>
     {
+        /// <summary>
+        /// Вид операции
+        /// </summary>
+        public ReturnSupplierType ReturnSupplierType { get; set; }
+
         /// <summary>
         /// Организация, Id
         /// </summary>
@@ -53,7 +56,7 @@ namespace Spoleto.BookApi.Interfaces
         public IContractor Contractor { get; set; }
 
         /// <summary>
-        /// Ответственное лицо, Id
+        /// Сотрудник, создавший накладную (ответственный), Id
         /// </summary>
         public Guid CreatedEmployeeId { get; set; }
 
@@ -86,31 +89,9 @@ namespace Spoleto.BookApi.Interfaces
         public Guid ContractorSettlementAccountId { get; set; }
 
         /// <summary>
-        /// Счет учета расчетов по авансам, Id
+        /// Счет учета расчетов по претензиям, Id
         /// </summary>
-        public Guid? AdvanceSettlementAccountId { get; set; }
-
-        /// <summary>
-        /// Грузоотправитель, Id
-        /// </summary>
-        public Guid? ShipperId { get; set; }
-
-        /// <summary>
-        /// Грузотправитель
-        /// </summary>
-        [RelatedKey(nameof(ShipperId))]
-        public IContractor Shipper { get; set; }
-
-        /// <summary>
-        /// Грузополучатель, Id
-        /// </summary>
-        public Guid? ConsigneeId { get; set; }
-
-        /// <summary>
-        /// Грузополучатель
-        /// </summary>
-        [RelatedKey(nameof(ConsigneeId))]
-        public IContractor Consignee { get; set; }
+        public Guid? PretenseSettlementAccountId { get; set; }
 
         /// <summary>
         /// Дата
@@ -127,11 +108,9 @@ namespace Spoleto.BookApi.Interfaces
         /// </summary>
         public string Note { get; set; }
 
-
         /// <summary>
-        ///  Способ Зачета Авансов
+        /// Позиции
         /// </summary>
-        public AdvanceSettlementType? AdvanceSettlementType { get; set; }
-
+        public List<ReturnSupplierItem> ReturnSupplierItems { get; set; }
     }
 }
