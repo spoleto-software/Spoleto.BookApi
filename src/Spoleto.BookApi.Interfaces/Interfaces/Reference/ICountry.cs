@@ -10,6 +10,11 @@
         string Name { get; set; }
 
         /// <summary>
+        /// Код
+        /// </summary>
+        string Code { get; set; }
+
+        /// <summary>
         /// Двузначный код страны (альфа-2)
         /// </summary>
         string CodeAlpha2 { get; set; }

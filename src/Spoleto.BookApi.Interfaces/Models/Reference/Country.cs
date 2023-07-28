@@ -10,6 +10,11 @@ namespace Spoleto.BookApi.Interfaces.Models
         public string Name { get; set; }
 
         /// <summary>
+        /// Код
+        /// </summary>
+        public string Code { get; set; }
+
+        /// <summary>
         /// Двузначный код страны (альфа-2)
         /// </summary>
         public string CodeAlpha2 { get; set; }

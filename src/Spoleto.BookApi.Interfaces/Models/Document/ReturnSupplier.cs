@@ -109,6 +109,11 @@ namespace Spoleto.BookApi.Interfaces.Models
         public string Note { get; set; }
 
         /// <summary>
+        /// Корректировочный cчет-фактура получен от поставщика
+        /// </summary>
+        public bool CorrectionInvoiceReceivedFromSupplier { get; set; }
+
+        /// <summary>
         /// Позиции
         /// </summary>
         public List<ReturnSupplierItem> ReturnSupplierItems { get; set; }

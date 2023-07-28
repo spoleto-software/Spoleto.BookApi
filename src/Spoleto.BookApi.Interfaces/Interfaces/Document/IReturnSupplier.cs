@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Text;
+using Spoleto.BookApi.Interfaces.Models;
 
 namespace Spoleto.BookApi.Interfaces
 {
@@ -111,6 +113,11 @@ namespace Spoleto.BookApi.Interfaces
         /// Комментарий
         /// </summary>
         string Note { get; set; }
+
+        /// <summary>
+        /// Корректировочный cчет-фактура получен от поставщика
+        /// </summary>
+        bool CorrectionInvoiceReceivedFromSupplier { get; set; }
 
         /// <summary>
         /// Позиции
