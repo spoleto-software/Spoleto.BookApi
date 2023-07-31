@@ -1,16 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Spoleto.BookApi.Interfaces.Models;
 
 namespace Spoleto.BookApi.Interfaces
 {
-      /// <summary>
-     /// Отчет комиссионера о продажах
-     /// </summary>
-    public interface ICommissionerReport<T,V> : IPersistentDocument
-        where T : ICommissionerReportSaleItem
-        where V : ICommissionerReportReturnItem
+    /// <summary>
+    /// Отчет комитенту
+    /// </summary>
+    public interface ICommitentReport<T> : IPersistentDocument
+          where T : ICommitentReportItem
     {
         /// <summary>
         /// Номер
@@ -25,7 +23,7 @@ namespace Spoleto.BookApi.Interfaces
         /// <summary>
         /// Вид Операции
         /// </summary>
-        CommissionerReportType CommissionerReportType { get; set; }
+        CommitentReportType CommitentReportType { get; set; }
 
         /// <summary>
         /// Организация
@@ -43,17 +41,6 @@ namespace Spoleto.BookApi.Interfaces
         /// </summary>
         [RelatedKey(nameof(CompanyDivisionId))]
         ICompanyDivision CompanyDivision { get; set; }
-
-        /// <summary>
-        /// Склад, Id
-        /// </summary>
-        Guid WarehouseId { get; set; }
-      
-        /// <summary>
-        /// Склад
-        /// </summary>
-        [RelatedKey(nameof(WarehouseId))]
-        IWarehouse Warehouse { get; set; }
 
         /// <summary>
         /// Контрагент, Id
@@ -100,14 +87,9 @@ namespace Spoleto.BookApi.Interfaces
         Guid? ContractorSettlementAccountId { get; set; }
 
         /// <summary>
-        /// Счет учета расчетов по авансам полученным, Id
+        /// Счет учета расчетов по авансам, Id
         /// </summary>
-        Guid? ReceivedAdvanceSettlementAccountId { get; set; }
-
-        /// <summary>
-        /// Счет учета расчетов по авансам выданным, Id
-        /// </summary>
-        Guid? PaidAdvanceSettlementAccountId { get; set; }
+        Guid? AdvanceSettlementAccountId { get; set; }
 
         /// <summary>
         /// Счета учета НДС, Id
@@ -115,24 +97,15 @@ namespace Spoleto.BookApi.Interfaces
         Guid? VatAccountId { get; set; }
 
         /// <summary>
-        /// Счета учета расчетов за посреднические услуги, Id
+        /// Счет учета доходов, Id
         /// </summary>
-        Guid? AgencyServiceAccountId { get; set; }
+        Guid? IncomeAccountId { get; set; }
+
 
         /// <summary>
-        /// Счет учета затрат, Id
+        /// Субконто (Номенклатурная группа) Id
         /// </summary>
-        Guid? ExpenseAccountId { get; set; }
-
-        /// <summary>
-        /// Субконто (Статьи затрат) Id
-        /// </summary>
-        Guid? SubcontoExpenseTypeId { get; set; }
-
-        /// <summary>
-        ///  Способ Зачета Авансов
-        /// </summary>
-        AdvanceSettlementType? AdvanceSettlementType { get; set; }
+        Guid? SubcontoNomenclatureGroupId { get; set; }
 
         /// <summary>
         /// Способ Расчета Комиссионного Вознаграждения
@@ -140,24 +113,14 @@ namespace Spoleto.BookApi.Interfaces
         CalcCommissionType? CalcCommissionType { get; set; }
 
         /// <summary>
-        ///  Процент Комиссионного Вознаграждения
-        /// </summary>
-        decimal? PercentCommissionPayment { get; set; }
-
-        /// <summary>
         ///  Удержать Вознаграждение
         /// </summary>
         bool WithholdPayment { get; set; }
 
         /// <summary>
-        /// Проданные товары
+        /// Товары
         /// </summary>
-        List<T> CommissionerReportSaleItems { get; set; }
-
-        /// <summary>
-        /// Возвращенные товары
-        /// </summary>
-        List<V> CommissionerReportReturnItems { get; set; }
+        List<T> CommitentReportItems { get; set; }
 
     }
 }

@@ -6,9 +6,9 @@ using Spoleto.BookApi.Interfaces.Models;
 namespace Spoleto.BookApi.Interfaces
 {
     /// <summary>
-    /// Позиция Отчета комиссионера о продажах
+    /// Позиции отчета комитенту
     /// </summary>
-    public interface ICommissionerReportItem
+    public interface ICommitentReportItem : IPersistentObjectBase
     {
 
         /// <summary>
@@ -48,11 +48,6 @@ namespace Spoleto.BookApi.Interfaces
         decimal VatAmount { get; set; }
 
         /// <summary>
-        /// Себестоимость
-        /// </summary>
-        decimal SelfCost { get; set; }
-
-        /// <summary>
         /// Страна, Id
         /// </summary>
         Guid? CountryId { get; set; }
@@ -62,7 +57,6 @@ namespace Spoleto.BookApi.Interfaces
         /// </summary>
         [RelatedKey(nameof(CountryId))]
         ICountry Country { get; set; }
-
 
         /// <summary>
         /// ГТД, Id
@@ -74,27 +68,6 @@ namespace Spoleto.BookApi.Interfaces
         /// </summary>
         [RelatedKey(nameof(CargoCustomsDeclarationId))]
         ICargoCustomsDeclaration CargoCustomsDeclaration { get; set; }
-
-        /// <summary>
-        /// Счет доходов, Id
-        /// </summary>
-        Guid IncomeAccountId { get; set; }
-
-        /// <summary>
-        /// Счет расходов, Id
-        /// </summary>
-        Guid ExpenseAccountId { get; set; }
-
-        /// <summary>
-        /// Счет учета, Id
-        /// </summary>
-        Guid AccountId { get; set; }
-
-        /// <summary>
-        /// Счета учета НДС, Id
-        /// </summary>
-        Guid VatAccountId { get; set; }
-
 
     }
 }
