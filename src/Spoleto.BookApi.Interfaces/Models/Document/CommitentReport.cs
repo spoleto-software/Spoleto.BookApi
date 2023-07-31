@@ -117,6 +117,11 @@ namespace Spoleto.BookApi.Interfaces.Models
         public bool WithholdPayment { get; set; }
 
         /// <summary>
+        /// Ставка НДС вознаграждения
+        /// </summary>
+        public Vat VatReward { get; set; }
+
+        /// <summary>
         /// Товары
         /// </summary>
         public List<CommitentReportItem> CommitentReportItems { get; set; }
