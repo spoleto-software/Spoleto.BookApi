@@ -26,6 +26,11 @@ namespace Spoleto.BookApi.Interfaces.Models
         public IBankAccount BankAccount { get; set; }
 
         /// <summary>
+        /// Выдано (кому)
+        /// </summary>
+        public string GiveOutTo { get; set; }
+
+        /// <summary>
         /// Расшифровка платежа
         /// </summary>
         public List<OutgoingPaymentDecryption> PaymentDecryptions { get; set; }

@@ -26,6 +26,11 @@ namespace Spoleto.BookApi.Interfaces
         /// </summary>
         [RelatedKey(nameof(BankAccountId))]
         IBankAccount BankAccount { get; set; }
+        
+        /// <summary>
+        /// Выдано (кому)
+        /// </summary>
+        string GiveOutTo { get; set; }
 
         /// <summary>
         /// Расшифровка платежа
