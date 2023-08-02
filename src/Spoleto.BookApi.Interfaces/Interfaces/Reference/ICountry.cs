@@ -6,8 +6,15 @@
     /// </summary>
     public interface ICountry : IPersistentReference
     {
-
+        /// <summary>
+        /// Наименование
+        /// </summary>
         string Name { get; set; }
+
+        /// <summary>
+        /// Полное наименование
+        /// </summary>
+        string FullName { get; set; }
 
         /// <summary>
         /// Код

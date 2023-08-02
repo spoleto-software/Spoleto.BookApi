@@ -6,8 +6,16 @@ namespace Spoleto.BookApi.Interfaces.Models
 {
     public class Country : PersistentObjectBase, ICountry
     {
-
+        /// <summary>
+        /// Наименование
+        /// </summary>
         public string Name { get; set; }
+
+        /// <summary>
+        /// Полное наименование
+        /// </summary>
+        public string FullName { get; set; }
+
 
         /// <summary>
         /// Код
