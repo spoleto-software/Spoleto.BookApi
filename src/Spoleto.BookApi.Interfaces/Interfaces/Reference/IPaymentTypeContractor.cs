@@ -45,6 +45,11 @@ namespace Spoleto.BookApi.Interfaces
         /// Контрагент
         /// </summary>
         [RelatedKey(nameof(ContractorId))]
-        IContractor Contractor { get; set; }  
+        IContractor Contractor { get; set; }
+
+        /// <summary>
+        /// Счет учета расчетов, Id
+        /// </summary>
+        Guid? SettlementAccountId { get; set; }
     }
 }

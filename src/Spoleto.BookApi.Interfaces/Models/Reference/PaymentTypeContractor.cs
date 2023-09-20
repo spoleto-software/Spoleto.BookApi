@@ -51,5 +51,10 @@ namespace Spoleto.BookApi.Interfaces.Models
         /// </summary>
         [RelatedKey(nameof(ContractorId))]
         public IContractor Contractor { get; set; }
+
+        /// <summary>
+        /// Счет учета расчетов, Id
+        /// </summary>
+        public Guid? SettlementAccountId { get; set; }
     }
 }
