@@ -19,5 +19,21 @@ namespace Spoleto.BookApi.Interfaces
         /// </summary>
         [RelatedKey(nameof(CurrencyId))]
         ICurrency Currency { get; set; }
+
+
+        /// <summary>
+        /// Дата добавления
+        /// </summary>
+        DateTime? DateAdd { get; set; }
+
+        /// <summary>
+        /// Примечание
+        /// </summary>
+        string Note { get; set; }
+
+        /// <summary>
+        /// Ответственный сотрудник, Id
+        /// </summary>
+        Guid? CreatedEmployeeId { get; set; }
     }
 }
