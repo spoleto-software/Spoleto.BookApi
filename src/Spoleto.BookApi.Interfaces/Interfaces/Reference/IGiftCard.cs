@@ -51,5 +51,10 @@ namespace Spoleto.BookApi.Interfaces
         /// Cчет, Id
         /// </summary>
         Guid? AccountId { get; set; }
+
+        /// <summary>
+        /// Склад, Id
+        /// </summary>
+        Guid? WarehouseId { get; set; }
     }
 }
