@@ -35,5 +35,21 @@ namespace Spoleto.BookApi.Interfaces
         /// Ответственный сотрудник, Id
         /// </summary>
         Guid? CreatedEmployeeId { get; set; }
+
+        /// <summary>
+        /// Подразделение организации, Id
+        /// </summary>
+        Guid? CompanyDivisionId { get; set; }
+
+        /// <summary>
+        ///  Подразделение организации
+        /// </summary>
+        [RelatedKey(nameof(CompanyDivisionId))]
+        ICompanyDivision CompanyDivision { get; set; }
+
+        /// <summary>
+        /// Cчет, Id
+        /// </summary>
+        Guid? AccountId { get; set; }
     }
 }
