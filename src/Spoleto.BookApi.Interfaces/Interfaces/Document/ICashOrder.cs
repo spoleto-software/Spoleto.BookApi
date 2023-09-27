@@ -74,9 +74,14 @@ namespace Spoleto.BookApi.Interfaces
         Guid? CashAccountId { get; set; }
 
         /// <summary>
-        /// Склад, Id
+        /// Контрагент, Id
         /// </summary>
-        Guid? WarehouseId { get; set; }
+        Guid? ContractorId { get; set; }
+
+        /// <summary>
+        /// Тип контрагента
+        /// </summary>
+        string ContractorType { get; set; }
 
         /// <summary>
         /// Счет учета расчетов с контрагентом, Id
@@ -97,11 +102,6 @@ namespace Spoleto.BookApi.Interfaces
         /// ОРП-основание, Id
         /// </summary>
         Guid? SaleSlipReportId { get; set; }
-
-        ///// <summary>
-        ///// Ставка НДС
-        ///// </summary>
-        //Vat VatValue { get; set; }
 
     }
 }

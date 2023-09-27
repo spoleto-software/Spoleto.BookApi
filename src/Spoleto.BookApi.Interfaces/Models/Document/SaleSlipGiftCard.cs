@@ -7,5 +7,6 @@ namespace Spoleto.BookApi.Interfaces.Models
     /// </summary>
     public class SaleSlipGiftCard : SlipGiftCard, ISaleSlipGiftCard
     {
+
     }
 }
