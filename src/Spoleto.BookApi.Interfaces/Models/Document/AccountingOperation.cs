@@ -11,6 +11,11 @@ namespace Spoleto.BookApi.Interfaces.Models
     public class AccountingOperation : PersistentObjectBase, IAccountingOperation
      {
         /// <summary>
+        /// Дата
+        /// </summary>
+        public DateTime Date { get; set; }
+
+        /// <summary>
         /// Организация, Id
         /// </summary>
         public Guid LegalPersonId { get; set; }

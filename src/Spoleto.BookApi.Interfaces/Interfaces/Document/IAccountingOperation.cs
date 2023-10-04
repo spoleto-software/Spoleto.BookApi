@@ -11,6 +11,11 @@ namespace Spoleto.BookApi.Interfaces
     public interface IAccountingOperation : IPersistentDocument
     {
         /// <summary>
+        /// Дата
+        /// </summary>
+        DateTime Date { get; set; }
+
+        /// <summary>
         /// Организация, Id
         /// </summary>
         Guid LegalPersonId { get; set; }
