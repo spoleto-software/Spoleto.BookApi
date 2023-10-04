@@ -24,11 +24,6 @@ namespace Spoleto.BookApi.Interfaces
         CargoCustomsDeclaration,
 
         /// <summary>
-        /// НДС
-        /// </summary>
-        Vat,
-
-        /// <summary>
         /// Страна
         /// </summary>
         Country

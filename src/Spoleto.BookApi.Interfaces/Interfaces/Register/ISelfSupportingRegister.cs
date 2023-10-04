@@ -30,7 +30,7 @@ namespace Spoleto.BookApi.Interfaces
         /// <summary>
 		/// Номер строки
 		/// </summary>
-        int LineNumber { get; set; }
+        int? LineNumber { get; set; }
 
         /// <summary>
         /// СчетДт, Id
