@@ -2,9 +2,9 @@
 namespace Spoleto.BookApi.Interfaces
 {
     /// <summary>
-    /// Тип контрагента в кассовом ордере
+    /// Тип контрагента в кассовых документах
     /// </summary>
-    public enum CashOrderContractorType
+    public enum CashContractorType
     {
         /// <summary>
         /// Склад

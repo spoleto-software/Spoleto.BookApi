@@ -27,10 +27,9 @@ namespace Spoleto.BookApi.Interfaces.Models
         public Guid ContractorId { get; set; }
 
         /// <summary>
-        /// Контрагент
+        /// Тип контрагента
         /// </summary>
-        [RelatedKey(nameof(Contractor))]
-        public IContractor Contractor { get; set; }
+        public CashContractorType ContractorType { get; set; }
 
 
         /// <summary>

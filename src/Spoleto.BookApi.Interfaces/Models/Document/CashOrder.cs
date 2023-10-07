@@ -80,7 +80,7 @@ namespace Spoleto.BookApi.Interfaces.Models
         /// <summary>
         /// Тип контрагента
         /// </summary>
-        public CashOrderContractorType ContractorType { get; set; }
+        public CashContractorType ContractorType { get; set; }
 
         /// <summary>
         /// Счет учета расчетов с контрагентом, Id
