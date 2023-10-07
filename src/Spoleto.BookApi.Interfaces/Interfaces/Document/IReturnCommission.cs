@@ -7,7 +7,7 @@ namespace Spoleto.BookApi.Interfaces
     /// <summary>
     /// Возврат переданного на реализацию по комиссии
     /// </summary>
-    public interface IReturnCommission<T> 
+    public interface IReturnCommission<T> : IPersistentDocument
     where T : IReturnCommissionItem
     {
         /// <summary>
@@ -24,7 +24,7 @@ namespace Spoleto.BookApi.Interfaces
         /// <summary>
         /// Вид операции
         /// </summary>
-        ReturnCommissionType ReturnCommissionType { get; set; }
+        ReturnType ReturnCommissionType { get; set; }
 
         /// <summary>
         /// Подразделение организации, Id

@@ -3,14 +3,14 @@
 namespace Spoleto.BookApi.Interfaces
 {
     /// <summary>
-    /// Позиции документа возврата с комиссии
+    /// Позиция возврата от розничного покупателя
     /// </summary>
-    public interface IReturnCommissionItem
+    public interface IReturnRetailItem : IPersistentDocument
     {
         /// <summary>
         /// Ссылка на документ, Id
         /// </summary>
-        Guid ReturnCommissionId { get; set; }
+        Guid ReturnRetailId { get; set; }
 
         /// <summary>
         /// Номенклатура, Id
@@ -88,13 +88,19 @@ namespace Spoleto.BookApi.Interfaces
         Guid ExpenseAccountId { get; set; }
 
         /// <summary>
-        /// Счет учета передачи на комиссию, Id
-        /// </summary>
-        Guid CommissionAccountId { get; set; }
-        /// <summary>
         /// Себестоимость
         /// </summary>
         decimal? SelfCost { get; set; }
+
+        /// <summary>
+        /// Субконто номенклатурной группы, Id
+        /// </summary>
+        Guid SubcontoNomenclatureGroupId { get; set; }
+
+        /// <summary>
+        /// Способ учета НДС
+        /// </summary>
+        VatAccountingType VatAccountingType { get; set; }
 
     }
 }

@@ -2,128 +2,144 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Spoleto.BookApi.Interfaces.Models
+namespace Spoleto.BookApi.Interfaces
 {
     /// <summary>
-    /// Возврат переданного на реализацию по комиссии
+    /// Возврат от розничного покупателя
     /// </summary>
-    public class ReturnCommission : PersistentObjectBase, IReturnCommission<ReturnCommissionItem>
+    public interface IReturnRetail<T> : IPersistentDocument
+        where T : IReturnRetailItem
     {
         /// <summary>
         /// Организация, Id
         /// </summary>
-        public Guid LegalPersonId { get; set; }
+        Guid LegalPersonId { get; set; }
 
         /// <summary>
         /// Организация-покупатель
         /// </summary>
         [RelatedKey(nameof(LegalPersonId))]
-        public ILegalPerson LegalPerson { get; set; }
+        ILegalPerson LegalPerson { get; set; }
 
         /// <summary>
-        /// Вид операции
+        /// Вид операции возврата
         /// </summary>
-        public ReturnType ReturnCommissionType { get; set; }
+        ReturnType ReturnType { get; set; }
 
         /// <summary>
         /// Подразделение организации, Id
         /// </summary>
-        public Guid CompanyDivisionId { get; set; }
+        Guid CompanyDivisionId { get; set; }
 
         /// <summary>
         ///  Подразделение организации
         /// </summary>
         [RelatedKey(nameof(CompanyDivisionId))]
-        public ICompanyDivision CompanyDivision { get; set; }
+        ICompanyDivision CompanyDivision { get; set; }
 
         /// <summary>
         /// Склад, Id
         /// </summary>
-        public Guid WarehouseId { get; set; }
+        Guid WarehouseId { get; set; }
 
         /// <summary>
         /// Склад
         /// </summary>
         [RelatedKey(nameof(WarehouseId))]
-        public IWarehouse Warehouse { get; set; }
+        IWarehouse Warehouse { get; set; }
 
         /// <summary>
-        /// Ссылка на связанную накладную реализации
+        /// Ссылка на связанный орп
         /// </summary>
-        public Guid WaybillCommissionExpendId { get; set; }
+        Guid RetailSaleDocumentId { get; set; }
 
         /// <summary>
         /// Контрагент, Id
         /// </summary>
-        public Guid ContractorId { get; set; }
+        Guid ContractorId { get; set; }
 
         /// <summary>
         /// Контрагент
         /// </summary>
         [RelatedKey(nameof(Contractor))]
-        public IContractor Contractor { get; set; }
+        IContractor Contractor { get; set; }
 
         /// <summary>
         /// Сотрудник, создавший накладную (ответственный), Id
         /// </summary>
-        public Guid CreatedEmployeeId { get; set; }
+        Guid CreatedEmployeeId { get; set; }
 
 
         /// <summary>
         /// Договор с контрагентом, Id
         /// </summary>
-        public Guid? DocumentReasonId { get; set; }
+        Guid? DocumentReasonId { get; set; }
 
         /// <summary>
         /// Договор с контрагентом
         /// </summary>
         [RelatedKey(nameof(DocumentReasonId))]
-        public IDocumentReason DocumentReason { get; set; }
+        IDocumentReason DocumentReason { get; set; }
 
         /// <summary>
         /// Валюта, Id
         /// </summary>
-        public Guid CurrencyId { get; set; }
+        Guid CurrencyId { get; set; }
 
         /// <summary>
         /// Валюта
         /// </summary>
         [RelatedKey(nameof(CurrencyId))]
-        public ICurrency Currency { get; set; }
+        ICurrency Currency { get; set; }
 
         /// <summary>
         /// Счет учета расчетов с контрагентом, Id
         /// </summary>
-        public Guid ContractorSettlementAccountId { get; set; }
+        Guid ContractorSettlementAccountId { get; set; }
 
         /// <summary>
         /// Счет учета расчетов по авансам, Id
         /// </summary>
-        public Guid AdvanceSettlementAccountId { get; set; }
+        Guid AdvanceSettlementAccountId { get; set; }
 
         /// <summary>
         /// Счета учета НДС, Id
         /// </summary>
-        public Guid VatAccountId { get; set; }
+        Guid VatAccountId { get; set; }
 
         /// <summary>
         /// Дата
         /// </summary>
-        public DateTime Date { get; set; }
+        DateTime Date { get; set; }
 
         /// <summary>
         /// Номер
         /// </summary>
-        public string Number { get; set; }
+        string Number { get; set; }
 
         /// <summary>
         /// Комментарий
         /// </summary>
-        public string Note { get; set; }
+        string Note { get; set; }
+
+        /// <summary>
+        /// Отразить в книге покупок
+        /// </summary>
+        bool PurchaseBook { get; set; }
+
+        /// <summary>
+        /// ПокупателемВыставляетсяСчетФактураНаВозврат
+        /// </summary>
+        bool ReturnInvoiceFromBuyer { get; set; }
+
+        /// <summary>
+        /// ПокупателюВыставляетсяКорректировочныйСчетФактура
+        /// </summary>
+        bool CorrectInvoiceToBuyer { get; set; }
 
         /// <summary>
         /// позиции
         /// </summary>
-        public List<ReturnCommissionItem> ReturnCommissionItems { get; set; }
+        List<T> ReturnItems { get; set; }
     }
 }

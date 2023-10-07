@@ -2,9 +2,9 @@
 namespace Spoleto.BookApi.Interfaces
 {
     /// <summary>
-    /// Вид операции возврат с комиссии
+    /// Вид операции возврата
     /// </summary>
-    public enum ReturnCommissionType
+    public enum ReturnType
     {
         /// <summary>
         /// Оборудование

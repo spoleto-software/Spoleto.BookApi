@@ -5,9 +5,9 @@ using System.Text;
 namespace Spoleto.BookApi.Interfaces.Models
 {
     /// <summary>
-    /// Возврат переданного на реализацию по комиссии
+    /// Позиция возврата от розничного покупателя
     /// </summary>
-    public class ReturnCommission : PersistentObjectBase, IReturnCommission<ReturnCommissionItem>
+    public class ReturnRetail : PersistentObjectBase, IReturnRetail<ReturnRetailItem>
     {
         /// <summary>
         /// Организация, Id
@@ -21,9 +21,9 @@ namespace Spoleto.BookApi.Interfaces.Models
         public ILegalPerson LegalPerson { get; set; }
 
         /// <summary>
-        /// Вид операции
+        /// Вид операции возврата
         /// </summary>
-        public ReturnType ReturnCommissionType { get; set; }
+        public ReturnType ReturnType { get; set; }
 
         /// <summary>
         /// Подразделение организации, Id
@@ -48,9 +48,9 @@ namespace Spoleto.BookApi.Interfaces.Models
         public IWarehouse Warehouse { get; set; }
 
         /// <summary>
-        /// Ссылка на связанную накладную реализации
+        /// Ссылка на связанный орп
         /// </summary>
-        public Guid WaybillCommissionExpendId { get; set; }
+        public Guid RetailSaleDocumentId { get; set; }
 
         /// <summary>
         /// Контрагент, Id
@@ -122,8 +122,23 @@ namespace Spoleto.BookApi.Interfaces.Models
         public string Note { get; set; }
 
         /// <summary>
+        /// Отразить в книге покупок
+        /// </summary>
+        public bool PurchaseBook { get; set; }
+
+        /// <summary>
+        /// ПокупателемВыставляетсяСчетФактураНаВозврат
+        /// </summary>
+        public bool ReturnInvoiceFromBuyer { get; set; }
+
+        /// <summary>
+        /// ПокупателюВыставляетсяКорректировочныйСчетФактура
+        /// </summary>
+        public bool CorrectInvoiceToBuyer { get; set; }
+
+        /// <summary>
         /// позиции
         /// </summary>
-        public List<ReturnCommissionItem> ReturnCommissionItems { get; set; }
+        public List<ReturnRetailItem> ReturnItems { get; set; }
     }
 }
