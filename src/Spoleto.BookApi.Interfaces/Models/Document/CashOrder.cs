@@ -100,7 +100,12 @@ namespace Spoleto.BookApi.Interfaces.Models
         /// <summary>
         /// ОРП-основание, Id
         /// </summary>
-        public Guid? SaleSlipReportId { get; set; }
+        public Guid? DocumentId { get; set; }
+
+        /// <summary>
+        /// тип документа-основания
+        /// </summary>
+        public DocumentType DocumentType { get; set; }
 
     }
 }

@@ -99,9 +99,13 @@ namespace Spoleto.BookApi.Interfaces
         string Attachment { get; set; }
 
         /// <summary>
-        /// ОРП-основание, Id
+        /// документ-основание, Id
         /// </summary>
-        Guid? SaleSlipReportId { get; set; }
+        Guid? DocumentId { get; set; }
 
+        /// <summary>
+        /// тип документа-основания
+        /// </summary>
+        DocumentType DocumentType { get; set; }
     }
 }
