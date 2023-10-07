@@ -1,5 +1,5 @@
 ﻿
-namespace Spoleto.BookApi.Interfaces.Enums
+namespace Spoleto.BookApi.Interfaces
 {
     /// <summary>
     /// Тип документа

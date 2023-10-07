@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Text.Json.Serialization;
-using Spoleto.BookApi.Interfaces.Enums;
 
 namespace Spoleto.BookApi.Interfaces
 {
@@ -27,6 +26,29 @@ namespace Spoleto.BookApi.Interfaces
         /// </summary>
         [RelatedKey(nameof(LegalPersonId))]
         ILegalPerson LegalPerson { get; set; }
+
+        /// <summary>
+        /// Контрагент, Id
+        /// </summary>
+        Guid ContractorId { get; set; }
+
+        /// <summary>
+        /// Контрагент
+        /// </summary>
+        [RelatedKey(nameof(Contractor))]
+        IContractor Contractor { get; set; }
+
+
+        /// <summary>
+        /// Договор с контрагентом, Id
+        /// </summary>
+        Guid? DocumentReasonId { get; set; }
+
+        /// <summary>
+        /// Договор с контрагентом
+        /// </summary>
+        [RelatedKey(nameof(DocumentReasonId))]
+        IDocumentReason DocumentReason { get; set; }
 
         /// <summary>
         /// Подразделение организации, Id

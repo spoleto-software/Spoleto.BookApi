@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
-using Spoleto.BookApi.Interfaces.Enums;
 
 namespace Spoleto.BookApi.Interfaces.Models
 {
@@ -22,6 +20,29 @@ namespace Spoleto.BookApi.Interfaces.Models
         /// </summary>
         [RelatedKey(nameof(LegalPersonId))]
         public ILegalPerson LegalPerson { get; set; }
+
+        /// <summary>
+        /// Контрагент, Id
+        /// </summary>
+        public Guid ContractorId { get; set; }
+
+        /// <summary>
+        /// Контрагент
+        /// </summary>
+        [RelatedKey(nameof(Contractor))]
+        public IContractor Contractor { get; set; }
+
+
+        /// <summary>
+        /// Договор с контрагентом, Id
+        /// </summary>
+        public Guid? DocumentReasonId { get; set; }
+
+        /// <summary>
+        /// Договор с контрагентом
+        /// </summary>
+        [RelatedKey(nameof(DocumentReasonId))]
+        public IDocumentReason DocumentReason { get; set; }
 
         /// <summary>
         /// Подразделение организации, Id
