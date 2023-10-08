@@ -17,6 +17,11 @@ namespace Spoleto.BookApi.Interfaces
         CardPaymentType CardPaymentType { get; set; }
 
         /// <summary>
+        /// СуммаПлатежа
+        /// </summary>
+        decimal PaymentAmount { get; set; }
+
+        /// <summary>
         /// Организация, Id
         /// </summary>
         Guid LegalPersonId { get; set; }
@@ -116,6 +121,30 @@ namespace Spoleto.BookApi.Interfaces
         /// </summary>
         [RelatedKey(nameof(PaymentTypeContractorId))]
         IPaymentTypeContractor PaymentTypeContractor { get; set; }
+
+        /// <summary>
+        /// Контрагент-банк, Id
+        /// </summary>
+        Guid BankContractorId { get; set; }
+
+
+        /// <summary>
+        /// Контрагент-банк
+        /// </summary>
+        [RelatedKey(nameof(BankContractorId))]
+        IContractor BankContractor { get; set; }
+
+        /// <summary>
+        /// Договор эквайринга, Id
+        /// </summary>
+        Guid? BankDocumentReasonId { get; set; }
+
+        /// <summary>
+        /// Договор эквайринга
+        /// </summary>
+        [RelatedKey(nameof(BankDocumentReasonId))]
+        IDocumentReason BankDocumentReason { get; set; }
+
 
         /// <summary>
         /// Банковский счет, Id
