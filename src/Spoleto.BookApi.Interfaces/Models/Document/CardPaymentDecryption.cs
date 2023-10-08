@@ -36,5 +36,16 @@ namespace Spoleto.BookApi.Interfaces.Models
         /// Счет учета расчетов по авансам, Id
         /// </summary>
         public Guid AdvanceSettlementAccountId { get; set; }
+
+        /// <summary>
+        /// Договор с контрагентом, Id
+        /// </summary>
+        public Guid? DocumentReasonId { get; set; }
+
+        /// <summary>
+        /// Договор с контрагентом
+        /// </summary>
+        [RelatedKey(nameof(DocumentReasonId))]
+        public IDocumentReason DocumentReason { get; set; }
     }
 }
