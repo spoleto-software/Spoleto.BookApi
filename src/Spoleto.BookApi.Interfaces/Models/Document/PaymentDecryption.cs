@@ -62,5 +62,15 @@ namespace Spoleto.BookApi.Interfaces.Models
         /// </summary>
         [RelatedKey(nameof(DocumentReasonId))]
         public IDocumentReason DocumentReason { get; set; }
+
+        /// <summary>
+        /// Документ-основание
+        /// </summary>
+        public Guid? DocumentId { get; set; }
+
+        /// <summary>
+        /// Тип документа-основания
+        /// </summary>
+        public DocumentType? DocumentType { get; set; }
     }
 }

@@ -50,7 +50,7 @@ namespace Spoleto.BookApi.Interfaces
         /// <summary>
         /// Дата
         /// </summary>
-        DateTime Date { get; set; }
+        DateTime? Date { get; set; }
 
         /// <summary>
         /// Номер

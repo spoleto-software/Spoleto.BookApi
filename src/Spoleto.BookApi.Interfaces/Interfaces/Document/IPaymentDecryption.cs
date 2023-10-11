@@ -13,7 +13,7 @@ namespace Spoleto.BookApi.Interfaces
         /// <summary>
         /// СпособыПогашенияЗадолженности
         /// </summary>
-       DebtRepaymentType DebtRepaymentType { get; set; }
+        DebtRepaymentType DebtRepaymentType { get; set; }
 
         /// <summary>
         /// СуммаПлатежа
@@ -25,7 +25,7 @@ namespace Spoleto.BookApi.Interfaces
         /// СуммаВзаиморасчетов
         /// </summary>
         decimal? SettlementAmount { get; set; }
-       
+
         /// <summary>
         /// СтавкаНДС
         /// </summary>
@@ -63,5 +63,15 @@ namespace Spoleto.BookApi.Interfaces
         [RelatedKey(nameof(DocumentReasonId))]
         IDocumentReason DocumentReason { get; set; }
 
-    }
+        /// <summary>
+        /// Документ-основание
+        /// </summary>
+        Guid? DocumentId {get;set;}
+
+        /// <summary>
+        /// Тип документа-основания
+        /// </summary>
+        DocumentType? DocumentType { get; set; }
+
+}
 }
