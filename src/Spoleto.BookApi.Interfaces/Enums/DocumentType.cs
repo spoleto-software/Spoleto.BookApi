@@ -14,6 +14,11 @@ namespace Spoleto.BookApi.Interfaces
         /// <summary>
         /// Возврат товаров от покупателя
         /// </summary>
-        Return
+        Return,
+
+        /// <summary>
+        /// Накладная на поступление
+        /// </summary>
+        SupplyWaybill
     }
 }

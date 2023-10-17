@@ -79,15 +79,23 @@ namespace Spoleto.BookApi.Interfaces.Models
         public decimal VatAmount { get; set; }
 
         /// <summary>
-        /// Накладная-основание, Id
+        /// Документ-основание, Id
         /// </summary>
-        public Guid WaybillId { get; set; }
+        public Guid DocumentId { get; set; }
 
         /// <summary>
-        /// Накладная-основание
+        /// Тип документа-основания
         /// </summary>
-         [RelatedKey(nameof(WaybillId))]
-        public IWaybill Waybill { get; set; }
+        public DocumentType? DocumentType { get; set; }
 
+        /// <summary>
+        /// Код вида операции
+        /// </summary>
+        public int? OperationCode { get; set; }
+
+        /// <summary>
+        /// Код способа получения
+        /// </summary>
+        public int? ReceiptTypeCode { get; set; }
     }
 }
