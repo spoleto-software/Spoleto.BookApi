@@ -86,7 +86,7 @@ namespace Spoleto.BookApi.Interfaces
         /// <summary>
         /// Тип документа-основания
         /// </summary>
-        DocumentType? DocumentType { get; set; }
+        DocumentType DocumentType { get; set; }
         
         /// <summary>
         /// Код вида операции

@@ -50,7 +50,7 @@ namespace Spoleto.BookApi.Interfaces.Models
         /// <summary>
         /// Ссылка на связанный орп
         /// </summary>
-        public Guid RetailSaleDocumentId { get; set; }
+        public Guid? RetailSaleDocumentId { get; set; }
 
         /// <summary>
         /// Контрагент, Id
