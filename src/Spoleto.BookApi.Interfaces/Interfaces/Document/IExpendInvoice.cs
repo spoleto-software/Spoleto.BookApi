@@ -9,5 +9,9 @@ namespace Spoleto.BookApi.Interfaces
     /// </summary>
     public interface IExpendInvoice : IInvoice
     {
+        /// <summary>
+        /// Вид счет-фактуры
+        /// </summary>
+        ExpendInvoiceType ExpendInvoiceType { get; set;  }
     }
 }

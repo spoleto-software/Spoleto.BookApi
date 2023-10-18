@@ -7,7 +7,7 @@ namespace Spoleto.BookApi.Interfaces.Models
     /// <summary>
     ///  Счет-Фактура на поступление товара
     /// </summary>
-    public class SupplyInvoice : Invoice
+    public class SupplyInvoice : Invoice, ISupplyInvoice
     {
         /// <summary>
         /// НДС предъявлен к вычету

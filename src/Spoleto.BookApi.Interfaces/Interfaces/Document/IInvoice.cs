@@ -71,12 +71,17 @@ namespace Spoleto.BookApi.Interfaces
         /// <summary>
         /// Сумма документа
         /// </summary>
-        decimal TotalAmount { get; set; }
+        decimal? TotalAmount { get; set; }
 
         /// <summary>
         /// Сумма НДС
         /// </summary>
-        decimal VatAmount { get; set; }
+        decimal? VatAmount { get; set; }
+
+        /// <summary>
+        /// Ставка НДС
+        /// </summary>
+        Vat? VatValue { get; set; }
 
         /// <summary>
         /// Документ-основание, Id
