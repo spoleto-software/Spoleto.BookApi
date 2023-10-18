@@ -13,5 +13,7 @@ namespace Spoleto.BookApi.Interfaces.Models
         /// Вид счет-фактуры
         /// </summary>
       public ExpendInvoiceType ExpendInvoiceType { get; set; }
+
+      public List<ExpendInvoiceAdvanceItem> ExpendInvoiceAdvanceItems { get; set; }
     }
 }
