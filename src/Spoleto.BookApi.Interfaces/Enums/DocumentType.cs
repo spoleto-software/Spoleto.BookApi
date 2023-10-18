@@ -19,6 +19,11 @@ namespace Spoleto.BookApi.Interfaces
         /// <summary>
         /// Накладная на поступление
         /// </summary>
-        SupplyWaybill
+        SupplyWaybill,
+
+        /// <summary>
+        /// Накладная на реализацию
+        /// </summary>
+        ExpendWaybill
     }
 }
