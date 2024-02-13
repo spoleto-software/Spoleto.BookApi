@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Spoleto.BookApi.Interfaces
 {
@@ -9,5 +7,14 @@ namespace Spoleto.BookApi.Interfaces
     /// </summary>
     public interface ISaleSlipItem : ISlipItem
     {
+        /// <summary>
+        /// тип документа оприходования
+        /// </summary>
+        ReceiptDocumentType? ReceiptDocumentType { get; set; }
+
+        /// <summary>
+        /// ссылка на документ оприходования
+        /// </summary>
+        Guid? ReceiptDocumentId { get; set; }
     }
 }
