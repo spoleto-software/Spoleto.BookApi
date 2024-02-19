@@ -89,5 +89,15 @@ namespace Spoleto.BookApi.Interfaces.Models
         /// Счета учета НДС, Id
         /// </summary>
         public Guid VatAccountId { get; set; }
+
+        /// <summary>
+        /// тип документа оприходования
+        /// </summary>
+        public ReceiptDocumentType? ReceiptDocumentType { get; set; }
+
+        /// <summary>
+        /// ссылка на документ оприходования
+        /// </summary>
+        public Guid? ReceiptDocumentId { get; set; }
     }
 }
