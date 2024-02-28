@@ -1,11 +1,9 @@
-﻿using System;
-
-namespace Spoleto.BookApi.Interfaces.Models.Auth
+﻿namespace Spoleto.BookApi.Interfaces.Models.Auth
 {
     /// <summary>
-    /// The user for database authentication.
+    /// The request to create/update the user.
     /// </summary>
-    public class User : PersistentObjectBase
+    public class UserRequest
     {
         /// <summary>
         /// Gets or sets the user's first name.
@@ -41,18 +39,8 @@ namespace Spoleto.BookApi.Interfaces.Models.Auth
         public string Email { get; set; }
 
         /// <summary>
-        /// Gets or sets the user's password (hash).
+        /// Gets or sets the user's password.
         /// </summary>
         public string Password { get; set; }
-
-        /// <summary>
-        /// Gets or sets the user group identifier.
-        /// </summary>
-        public Guid GroupId { get; set; }
-
-        /// <summary>
-        /// Gets or sets the user group.
-        /// </summary>
-        public Group Group { get; set; }
     }
 }
