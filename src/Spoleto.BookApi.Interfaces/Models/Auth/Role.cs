@@ -3,17 +3,17 @@
 namespace Spoleto.BookApi.Interfaces.Models.Auth
 {
     /// <summary>
-    /// The user group for database authentication.
+    /// The user role for database authentication.
     /// </summary>
-    public class Group : PersistentObjectBase
+    public class Role : PersistentObjectBase
     {
         /// <summary>
-        /// Gets or sets the group's name.
+        /// Gets or sets the role name.
         /// </summary>
         public string Name { get; set; }
 
         /// <summary>
-        /// Gets or sets the users belonging to this group.
+        /// Gets or sets the users belonging to this role.
         /// </summary>
         public List<User> Users { get; set; }
     }

@@ -1,12 +1,12 @@
 ﻿namespace Spoleto.BookApi.Interfaces.Models.Auth
 {
     /// <summary>
-    /// The request to create/update the user group.
+    /// The request to create/update the user role.
     /// </summary>
-    public class GroupRequest
+    public class RoleRequest
     {
         /// <summary>
-        /// Gets or sets the group's name.
+        /// Gets or sets the role name.
         /// </summary>
         public string Name { get; set; }
     }

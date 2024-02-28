@@ -46,13 +46,13 @@ namespace Spoleto.BookApi.Interfaces.Models.Auth
         public string Password { get; set; }
 
         /// <summary>
-        /// Gets or sets the user group identifier.
+        /// Gets or sets the user role identifier.
         /// </summary>
-        public Guid GroupId { get; set; }
+        public Guid RoleId { get; set; }
 
         /// <summary>
-        /// Gets or sets the user group.
+        /// Gets or sets the user role.
         /// </summary>
-        public Group Group { get; set; }
+        public Role Role { get; set; }
     }
 }
