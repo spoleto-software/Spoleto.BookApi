@@ -5,8 +5,13 @@ namespace Spoleto.BookApi.Interfaces.Models.Auth
     /// <summary>
     /// The refresh token.
     /// </summary>
-    public class RefreshToken : PersistentObjectBase
+    public class RefreshToken
     {
+        /// <summary>
+        /// Gets or sets the identifier.
+        /// </summary>
+        public Guid? Id { get; set; }
+
         /// <summary>
         /// Gets or sets the hash value for this refresh token.
         /// </summary>
