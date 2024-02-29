@@ -1,4 +1,6 @@
-﻿namespace Spoleto.BookApi.Interfaces.Models.Auth
+﻿using System;
+
+namespace Spoleto.BookApi.Interfaces.Models.Auth
 {
     /// <summary>
     /// The request to create/update the user.
@@ -42,5 +44,11 @@
         /// Gets or sets the user's password.
         /// </summary>
         public string Password { get; set; }
+
+        /// <summary>
+        /// Gets or sets the user role identifier.
+        /// </summary>
+        public Guid RoleId { get; set; }
+
     }
 }
