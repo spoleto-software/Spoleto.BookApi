@@ -11,7 +11,7 @@ namespace Spoleto.BookApi.Interfaces.Models.Auth
         /// <summary>
         /// Gets or sets the identifier.
         /// </summary>
-        public Guid? Id { get; set; }
+        public virtual Guid? Id { get; set; }
 
         /// <summary>
         /// Gets or sets the role name.
