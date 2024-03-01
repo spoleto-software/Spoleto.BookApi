@@ -1,41 +1,35 @@
 ﻿using System;
-using Spoleto.BookApi.Interfaces.Auth;
 
-namespace Spoleto.BookApi.Interfaces.Models.Auth
+namespace Spoleto.BookApi.Interfaces.Auth
 {
     /// <summary>
     /// The refresh token.
     /// </summary>
-    public class RefreshToken : PersistentObjectBase, IRefreshToken
+    public interface IRefreshToken : IPersistentObjectBase
     {
         /// <summary>
         /// Gets or sets the hash value for this refresh token.
         /// </summary>
-        public string ValueToken { get; set; }
+        string ValueToken { get; set; }
 
         /// <summary>
         /// Gets or sets the active flag of this token.
         /// </summary>
-        public bool Active { get; set; }
+        bool Active { get; set; }
 
         /// <summary>
         /// Gets or sets the date issued in UTC of this token.
         /// </summary>
-        public DateTime DateIssued { get; set; }
+        DateTime DateIssued { get; set; }
 
         /// <summary>
         /// Gets or sets the date expires in UTC of this token.
         /// </summary>
-        public DateTime DateExpires { get; set; }
+        DateTime DateExpires { get; set; }
 
         /// <summary>
         /// Gets or sets the target user identifier for this refresh token.
         /// </summary>
-        public Guid UserId { get; set; }
-
-        /// <summary>
-        /// Gets or sets the target user for this refresh token.
-        /// </summary>
-        public User User { get; set; }
+        Guid UserId { get; set; }
     }
 }

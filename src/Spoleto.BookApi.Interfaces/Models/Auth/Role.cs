@@ -1,18 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using Spoleto.BookApi.Interfaces.Auth;
 
 namespace Spoleto.BookApi.Interfaces.Models.Auth
 {
     /// <summary>
     /// The user role for database authentication.
     /// </summary>
-    public class Role
+    public class Role : PersistentObjectBase, IRole
     {
-        /// <summary>
-        /// Gets or sets the identifier.
-        /// </summary>
-        public virtual Guid? Id { get; set; }
-
         /// <summary>
         /// Gets or sets the role name.
         /// </summary>

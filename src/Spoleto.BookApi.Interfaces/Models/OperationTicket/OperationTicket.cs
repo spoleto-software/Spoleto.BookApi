@@ -1,21 +1,17 @@
 ﻿using System;
+using Spoleto.BookApi.Interfaces.OperationTicket;
 
 namespace Spoleto.BookApi.Interfaces.Models.OperationTicket
 {
     /// <summary>
     /// The ticket for processing object containers.
     /// </summary>
-    public class OperationTicket
+    public class OperationTicket : PersistentObjectBase, IOperationTicket
     {
         /// <summary>
         /// The ticket that is not found.
         /// </summary>
         public static readonly OperationTicket NotFound = new OperationTicket { Status = OperationTicketStatus.NoFound };
-
-        /// <summary>
-        /// Gets or sets the identifier.
-        /// </summary>
-        public virtual Guid? Id { get; set; }
 
         /// <summary>
         /// Gets or sets the status of processing the object container.

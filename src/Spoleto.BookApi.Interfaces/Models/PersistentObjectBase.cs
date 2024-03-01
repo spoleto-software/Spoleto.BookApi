@@ -1,11 +1,15 @@
 ﻿using System;
-//using System.ComponentModel.DataAnnotations;
 
 namespace Spoleto.BookApi.Interfaces.Models
 {
+    /// <summary>
+    /// The base persistent object.
+    /// </summary>
     public abstract class PersistentObjectBase : IPersistentObjectBase
     {
-        //[Key]
+        /// <summary>
+        /// Gets or sets the identifier.
+        /// </summary>
         public Guid? Identity { get; set; }
     }
 }

@@ -8,14 +8,8 @@ namespace Spoleto.BookApi.Interfaces
     public interface IPersistentObjectBase
     {
         /// <summary>
-        /// ID документа
+        /// Gets or sets the identifier.
         /// </summary>
         Guid? Identity { get; set; }
-
-        /// <summary>
-        /// Дополнительные параметры
-        /// </summary>
-        ///   Dictionary<string, object> AdditionalParameters {get ;set; }
-
     }
 }

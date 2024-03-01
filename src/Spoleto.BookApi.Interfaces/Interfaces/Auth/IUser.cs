@@ -1,26 +1,26 @@
 ﻿using System;
 
-namespace Spoleto.BookApi.Interfaces.Models.Auth
+namespace Spoleto.BookApi.Interfaces.Auth
 {
     /// <summary>
     /// The user for database authentication.
     /// </summary>
-    public class User : PersistentObjectBase, Spoleto.BookApi.Interfaces.Auth.IUser
+    public interface IUser : IPersistentObjectBase
     {
         /// <summary>
         /// Gets or sets the user's first name.
         /// </summary>
-        public string FirstName { get; set; }
+        string FirstName { get; set; }
 
         /// <summary>
         /// Gets or sets the user's middle name. Optional, can be null if not provided.
         /// </summary>
-        public string MiddleName { get; set; }
+        string MiddleName { get; set; }
 
         /// <summary>
         /// Gets or sets the user's last name. Optional, can be null if not provided.
         /// </summary>
-        public string LastName { get; set; }
+        string LastName { get; set; }
 
         /// <summary>
         /// Gets or sets the user's phone number.
@@ -29,7 +29,7 @@ namespace Spoleto.BookApi.Interfaces.Models.Auth
         /// It is required if <see cref="Email"/> is not initialized.<br/>
         /// In this case <see cref="Phone"/> is expected to be unique.
         /// </remarks>
-        public string Phone { get; set; }
+        string Phone { get; set; }
 
         /// <summary>
         /// Gets or sets the user's email address.
@@ -38,21 +38,16 @@ namespace Spoleto.BookApi.Interfaces.Models.Auth
         /// It is required if <see cref="Phone"/> is not initialized.<br/>
         /// In this case <see cref="Email"/> is expected to be unique.
         /// </remarks>
-        public string Email { get; set; }
+        string Email { get; set; }
 
         /// <summary>
         /// Gets or sets the user's password (hash).
         /// </summary>
-        public string Password { get; set; }
+        string Password { get; set; }
 
         /// <summary>
         /// Gets or sets the user role identifier.
         /// </summary>
-        public Guid RoleId { get; set; }
-
-        /// <summary>
-        /// Gets or sets the user role.
-        /// </summary>
-        public Role Role { get; set; }
+        Guid RoleId { get; set; }
     }
 }
