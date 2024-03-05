@@ -7,7 +7,7 @@ namespace Spoleto.BookApi.Interfaces.Models.Auth
     /// <summary>
     /// The user role for database authentication.
     /// </summary>
-    public class Role : PersistentObjectBase, IRole
+    public class Role : ServiceObjectBase, IRole
     {
         /// <summary>
         /// Gets or sets the role name.

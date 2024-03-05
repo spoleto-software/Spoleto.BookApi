@@ -1,4 +1,5 @@
 ﻿using System;
+using Spoleto.BookApi.Interfaces.Models.Auth;
 using Spoleto.BookApi.Interfaces.OperationTicket;
 
 namespace Spoleto.BookApi.Interfaces.Models.OperationTicket
@@ -6,7 +7,7 @@ namespace Spoleto.BookApi.Interfaces.Models.OperationTicket
     /// <summary>
     /// The ticket for processing object containers.
     /// </summary>
-    public class OperationTicket : PersistentObjectBase, IOperationTicket
+    public class OperationTicket : ServiceObjectBase, IOperationTicket
     {
         /// <summary>
         /// The ticket that is not found.

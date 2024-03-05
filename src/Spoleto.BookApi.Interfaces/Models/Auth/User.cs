@@ -5,7 +5,7 @@ namespace Spoleto.BookApi.Interfaces.Models.Auth
     /// <summary>
     /// The user for database authentication.
     /// </summary>
-    public class User : PersistentObjectBase, Spoleto.BookApi.Interfaces.Auth.IUser
+    public class User : ServiceObjectBase, Spoleto.BookApi.Interfaces.Auth.IUser
     {
         /// <summary>
         /// Gets or sets the user's first name.
