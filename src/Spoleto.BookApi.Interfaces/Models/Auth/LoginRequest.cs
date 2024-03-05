@@ -6,9 +6,9 @@
     public class LoginRequest
     {
         /// <summary>
-        /// Gets or sets whether the email or the phone.
+        /// Gets or sets the login.
         /// </summary>
-        public string EmailOrPhone { get; set; }
+        public string Login { get; set; }
 
         /// <summary>
         /// Gets or sets the password.
