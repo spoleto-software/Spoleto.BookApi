@@ -25,20 +25,17 @@ namespace Spoleto.BookApi.Interfaces.Auth
         /// <summary>
         /// Gets or sets the user's phone number.
         /// </summary>
-        /// <remarks>
-        /// It is required if <see cref="Email"/> is not initialized.<br/>
-        /// In this case <see cref="Phone"/> is expected to be unique.
-        /// </remarks>
         string Phone { get; set; }
 
         /// <summary>
         /// Gets or sets the user's email address.
         /// </summary>
-        /// <remarks>
-        /// It is required if <see cref="Phone"/> is not initialized.<br/>
-        /// In this case <see cref="Email"/> is expected to be unique.
-        /// </remarks>
         string Email { get; set; }
+
+        /// <summary>
+        /// Gets or sets the user's login name.
+        /// </summary>
+        string Login { get; set; }
 
         /// <summary>
         /// Gets or sets the user's password (hash).
