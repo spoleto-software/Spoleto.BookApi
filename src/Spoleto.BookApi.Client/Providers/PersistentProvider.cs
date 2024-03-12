@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
+using Spoleto.BookApi.Client.Models;
 using Spoleto.Common.Extensions;
 using Spoleto.Common.Helpers;
 
@@ -9,19 +11,18 @@ namespace Spoleto.BookApi.Client.Providers
 {
     public partial class PersistentProvider : IPersistentProvider
     {
-        /// <summary>
-        /// HttpClientWithDefaultCredentialsName.
-        /// </summary>
-        public const string HttpClientWithDefaultCredentialsName = "WithDefaultCredentials";
-
         private readonly IHttpClientFactory _httpClientFactory;
         private readonly ILogger<PersistentProvider> _logger;
+        private readonly ITokenProvider _tokenProvider;
         private readonly HttpClient _httpClient;
 
-        public PersistentProvider(IHttpClientFactory httpClientFactory, ILogger<PersistentProvider> logger)
+        private TokenModel _token;
+
+        public PersistentProvider(IHttpClientFactory httpClientFactory, ILogger<PersistentProvider> logger, ITokenProvider tokenProvider)
         {
             _httpClientFactory = httpClientFactory;
             _logger = logger;
+            _tokenProvider = tokenProvider;
         }
 
         /// <summary>
@@ -31,6 +32,7 @@ namespace Spoleto.BookApi.Client.Providers
         private PersistentProvider(HttpClient httpClient)
         {
             _httpClient = httpClient;
+            _tokenProvider = new TokenProvider();
         }
 
         /// <summary>
@@ -38,12 +40,33 @@ namespace Spoleto.BookApi.Client.Providers
         /// </summary>
         public static PersistentProvider CreateProviderWithHttpClient(HttpClient httpClient) => new PersistentProvider(httpClient);
 
-        private void InitHeaders(HttpRequestMessage requestMessage, PersistentProviderOption settings)
+        private async Task InitHeadersAsync(HttpRequestMessage requestMessage, PersistentProviderOption settings, HttpClient httpClient)
         {
             requestMessage.ConfigureRequestMessage();
+
+            var token = await GetTokenAsync(settings, httpClient).ConfigureAwait(false);
+            requestMessage.Headers.Authorization = new AuthenticationHeaderValue("Bearer", token.AccessToken);
         }
 
-        private async Task<T> InvokeAsync<T>(PersistentProviderOption settings, Uri uri, HttpMethod method, string requestJsonContent = null)
+        private async Task<TokenModel> GetTokenAsync(PersistentProviderOption settings, HttpClient httpClient)
+        {
+            if (_token == null || _token.RefreshToken == null) // no token
+            {
+                _token = await _tokenProvider.GetTokenAsync(settings, httpClient).ConfigureAwait(false);
+            }
+            else if (_token.AccessToken == null) // expired access token
+            {
+                _token = await _tokenProvider.RefreshTokenAsync(settings, httpClient, _token.RefreshToken).ConfigureAwait(false);
+                if (_token == null) // refresh token is invalid, e.g. expired, non-active
+                {
+                    _token = await GetTokenAsync(settings, httpClient);
+                }
+            }
+
+            return _token;
+        }
+
+        private async Task<T> InvokeAsync<T>(PersistentProviderOption settings, Uri uri, HttpMethod method, string requestJsonContent = null, bool canToResetToken = true)
         {
             bool byHttpClientFactory;
             HttpClient client;
@@ -54,7 +77,7 @@ namespace Spoleto.BookApi.Client.Providers
             }
             else
             {
-                client = _httpClientFactory.CreateClient(HttpClientWithDefaultCredentialsName);
+                client = _httpClientFactory.CreateClient();
                 byHttpClientFactory = true;
             }
 
@@ -64,7 +87,8 @@ namespace Spoleto.BookApi.Client.Providers
 
                 using (var requestMessage = new HttpRequestMessage(method, uri))
                 {
-                    InitHeaders(requestMessage, settings);
+                    await InitHeadersAsync(requestMessage, settings, client).ConfigureAwait(false);
+
                     if (requestJsonContent != null)
                     {
                         requestMessage.Content = new StringContent(requestJsonContent, DefaultSettings.Encoding, DefaultSettings.ContentType);
@@ -78,6 +102,18 @@ namespace Spoleto.BookApi.Client.Providers
 
                             var objectResult = JsonHelper.FromJson<T>(result);
                             return objectResult;
+                        }
+
+                        if (responseMessage.StatusCode == System.Net.HttpStatusCode.Unauthorized
+                            && canToResetToken)
+                        {
+                            // Кейс с истекшим токеном:
+                            // 1. Сбросим текущий токен только один раз.
+                            // 2. Далее пробуем получить токен на основе Refresh токена.
+                            // 3. Если это не помогло, то, возможно, дело в другом.
+                            _token.AccessToken = null;
+
+                            return await InvokeAsync<T>(settings, uri, method, requestJsonContent, canToResetToken: false).ConfigureAwait(false);
                         }
 
                         var errorResult = await responseMessage.Content.ReadAsStringAsync().ConfigureAwait(false);

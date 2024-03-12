@@ -21,6 +21,7 @@ namespace Spoleto.BookApi.Client.Tests
                     UseDefaultCredentials = true
                 });
 
+            services.AddTransient<ITokenProvider, TokenProvider>();
             services.AddTransient<IPersistentProvider, PersistentProvider>();
 
             _serviceProvider = services.BuildServiceProvider();
@@ -211,7 +212,7 @@ namespace Spoleto.BookApi.Client.Tests
         public async Task CreateContainer()
         {
             // Arrange
-            var provider = _serviceProvider.GetService<IPersistentProvider>();
+            var provider = _serviceProvider.GetRequiredService<IPersistentProvider>();
             var newItem = new SaleSlipItem
             {
                 Identity = Guid.NewGuid(),
@@ -242,15 +243,15 @@ namespace Spoleto.BookApi.Client.Tests
 
             var report = new SaleSlipReport
             {
-                SaleItems = new ()
+                SaleItems = new()
                 {
                     newObj
                 }
-            };            
+            };
 
             var container = new PersistentContainer
             {
-                Items = new ()
+                Items = new()
                 {
                     new (typeof(SaleSlipReport)) {
                         Objects = new List<PersistentObjectBase>()
@@ -262,7 +263,8 @@ namespace Spoleto.BookApi.Client.Tests
             };
 
             // Act
-            var ticketId = await provider.CreateContainerAsync(_settings, "dbName",true, container);
+            var ticket = await provider.CreateContainerAsync(_settings, "dbName", true, container);
+            var ticketStatus = await provider.CheckOperationStatusAsync(_settings, ticket.Id);
 
             // Assert
             Assert.Pass();

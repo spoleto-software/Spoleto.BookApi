@@ -9,28 +9,28 @@ namespace Spoleto.BookApi.Client.Providers
 {
     public partial class PersistentProvider
     {
-        Guid IPersistentProvider.CreateContainer(PersistentProviderOption settings, string dataBaseName, bool confirm, PersistentContainer container)
+        OperationTicketResult IPersistentProvider.CreateContainer(PersistentProviderOption settings, string dataBaseName, bool confirm, PersistentContainer container)
             => Provider.CreateContainerAsync(settings, dataBaseName, confirm, container).GetAwaiter().GetResult();
 
-        async Task<Guid> IPersistentProvider.CreateContainerAsync(PersistentProviderOption settings, string dataBaseName, bool confirm, PersistentContainer container)
+        async Task<OperationTicketResult> IPersistentProvider.CreateContainerAsync(PersistentProviderOption settings, string dataBaseName, bool confirm, PersistentContainer container)
         {
             var uri = new Uri(new Uri(settings.ServiceUrl), $"api/PersistentObject/Container/{dataBaseName}/{confirm}");
 
             var jsonModel = JsonHelper.ToJson(container);
-            var obj = await InvokeAsync<Guid>(settings, uri, HttpMethod.Post, jsonModel).ConfigureAwait(false);
+            var obj = await InvokeAsync<OperationTicketResult>(settings, uri, HttpMethod.Post, jsonModel).ConfigureAwait(false);
 
             return obj;
         }
 
-        Guid IPersistentProvider.ProcessContainer(PersistentProviderOption settings, string dataBaseName, PersistentStateContainer container)
+        OperationTicketResult IPersistentProvider.ProcessContainer(PersistentProviderOption settings, string dataBaseName, PersistentStateContainer container)
             => Provider.ProcessContainerAsync(settings, dataBaseName, container).GetAwaiter().GetResult();
 
-        async Task<Guid> IPersistentProvider.ProcessContainerAsync(PersistentProviderOption settings, string dataBaseName, PersistentStateContainer container)
+        async Task<OperationTicketResult> IPersistentProvider.ProcessContainerAsync(PersistentProviderOption settings, string dataBaseName, PersistentStateContainer container)
         {
             var uri = new Uri(new Uri(settings.ServiceUrl), $"api/PersistentObject/Container/Process/{dataBaseName}");
 
             var jsonModel = JsonHelper.ToJson(container);
-            var obj = await InvokeAsync<Guid>(settings, uri, HttpMethod.Post, jsonModel).ConfigureAwait(false);
+            var obj = await InvokeAsync<OperationTicketResult>(settings, uri, HttpMethod.Post, jsonModel).ConfigureAwait(false);
 
             return obj;
         }
@@ -38,19 +38,19 @@ namespace Spoleto.BookApi.Client.Providers
         /// <summary>
         /// Confirm 1C documents (with making 1C entries) if already exists.
         /// </summary>
-        Guid IPersistentProvider.ConfirmContainer(PersistentProviderOption settings, string dataBaseName, PersistentContainer container)
+        OperationTicketResult IPersistentProvider.ConfirmContainer(PersistentProviderOption settings, string dataBaseName, PersistentContainer container)
         => Provider.ConfirmContainerAsync(settings, dataBaseName, container).GetAwaiter().GetResult();
 
 
         /// <summary>
         /// Confirm 1C documents (with making 1C entries) if already exists.
         /// </summary>
-        async Task<Guid> IPersistentProvider.ConfirmContainerAsync(PersistentProviderOption settings, string dataBaseName, PersistentContainer container)
+        async Task<OperationTicketResult> IPersistentProvider.ConfirmContainerAsync(PersistentProviderOption settings, string dataBaseName, PersistentContainer container)
         {
             var uri = new Uri(new Uri(settings.ServiceUrl), $"api/PersistentObject/Container/Confirm/{dataBaseName}");
 
             var jsonModel = JsonHelper.ToJson(container);
-            var obj = await InvokeAsync<Guid>(settings, uri, HttpMethod.Post, jsonModel).ConfigureAwait(false);
+            var obj = await InvokeAsync<OperationTicketResult>(settings, uri, HttpMethod.Post, jsonModel).ConfigureAwait(false);
 
             return obj;
         }
