@@ -2,6 +2,9 @@
 
 namespace Spoleto.BookApi.Client
 {
+    /// <summary>
+    /// Default settings.
+    /// </summary>
     public static class DefaultSettings
     {
         public const string ContentType = Spoleto.Common.ContentTypes.ApplicationJson;
