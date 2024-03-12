@@ -29,6 +29,12 @@ namespace Spoleto.BookApi.Client.Tests
             _settings = ConfigurationHelper.GetSettings();
         }
 
+        [OneTimeTearDown]
+        public void OneTimeTearDown()
+        {
+            _serviceProvider.Dispose();
+        }
+
         [Test]
         public void LoadObject()
         {
