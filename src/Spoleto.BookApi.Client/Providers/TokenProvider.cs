@@ -25,8 +25,8 @@ namespace Spoleto.BookApi.Client.Providers
             {
                 request.Content = new StringContent(JsonHelper.ToJson(loginRequest), DefaultSettings.Encoding, DefaultSettings.ContentType);
 
-                var response = await httpClient.SendAsync(request);
-                var result = await response.Content.ReadAsStringAsync();
+                var response = await httpClient.SendAsync(request).ConfigureAwait(false);
+                var result = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
 
                 if (response.IsSuccessStatusCode)
                 {
@@ -68,8 +68,8 @@ namespace Spoleto.BookApi.Client.Providers
             {
                 request.Content = new StringContent(JsonHelper.ToJson(loginRequest), DefaultSettings.Encoding, DefaultSettings.ContentType);
 
-                var response = await httpClient.SendAsync(request);
-                var result = await response.Content.ReadAsStringAsync();
+                var response = await httpClient.SendAsync(request).ConfigureAwait(false);
+                var result = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
 
                 if (response.IsSuccessStatusCode)
                 {
