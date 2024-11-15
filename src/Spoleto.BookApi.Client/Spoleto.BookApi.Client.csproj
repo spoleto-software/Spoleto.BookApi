@@ -51,7 +51,7 @@
         <PackageReference Include="Microsoft.Extensions.Http" Version="8.0.0" />
         <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="8.0.0" />
         <PackageReference Include="Spoleto.BookApi.Interfaces" Version="2.3.7.1303" />
-        <PackageReference Include="Spoleto.Common" Version="2.2.27.1416" />
+        <PackageReference Include="Spoleto.Common" Version="2.9.17.1649" />
     </ItemGroup>
 
 </Project>
