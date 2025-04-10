@@ -12,6 +12,22 @@
         /// </summary>
         Vat0,
         /// <summary>
+        /// НДС5
+        /// </summary>
+        Vat5,
+        /// <summary>
+        /// НДС5_105
+        /// </summary>
+        Vat5_105,
+        /// <summary>
+        /// НДС7
+        /// </summary>
+        Vat7,
+        /// <summary>
+        /// НДС7_107
+        /// </summary>
+        Vat7_107,
+        /// <summary>
         /// НДС10
         /// </summary>
         Vat10,
