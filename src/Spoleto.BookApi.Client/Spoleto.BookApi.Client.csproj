@@ -24,7 +24,7 @@
         <Company>SPOLETO Software Development</Company>
         <PackageIcon>MainIcon.jpg</PackageIcon>
         <PackageProjectUrl>https://spoleto.ru</PackageProjectUrl>
-        <RepositoryUrl>https://github.com/spoleto-software/Spoleto.BookApi.Client</RepositoryUrl>
+        <RepositoryUrl>https://github.com/spoleto-software/Spoleto.BookApi</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <PackageReadmeFile>README.md</PackageReadmeFile>
@@ -51,7 +51,7 @@
         <PackageReference Include="Microsoft.Extensions.Http" Version="8.0.0" />
         <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="8.0.0" />
         <PackageReference Include="Spoleto.BookApi.Interfaces" Version="3.4.14.1139" />
-        <PackageReference Include="Spoleto.Common" Version="3.4.14.1138" />
+        <PackageReference Include="Spoleto.Common" Version="3.6.28.1701" />
     </ItemGroup>
 
 </Project>
