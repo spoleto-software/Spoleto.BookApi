@@ -50,6 +50,14 @@
         /// <summary>
         /// НДС20_120
         /// </summary>
-        Vat20_120
+        Vat20_120,
+        /// <summary>
+        /// НДС20
+        /// </summary>
+        Vat22,
+        /// <summary>
+        /// НДС20_120
+        /// </summary>
+        Vat22_122
     }
 }
